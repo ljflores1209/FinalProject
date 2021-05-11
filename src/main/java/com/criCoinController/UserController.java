@@ -62,6 +62,7 @@ public class UserController extends HttpServlet {
 					|| email == null) {
 
 				request.setAttribute("mensaje", "Debes rellenar todos los campos");
+				request.setAttribute("email", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 				dispatcher.forward(request, response);
 
