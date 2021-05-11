@@ -69,10 +69,12 @@ public class UserController extends HttpServlet {
 			} else if (!pass.equals(pass1)) {
 
 				request.setAttribute("mensaje", "La contraseña no coincide");
+				request.setAttribute("email", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 				dispatcher.forward(request, response);
 
-			}
+			} else {
+			
 
 			UserPojo usuario = new UserPojo(0, email, pass);
 			modeloUser.addUser(usuario);
@@ -80,7 +82,7 @@ public class UserController extends HttpServlet {
 			request.setAttribute("pass", pass);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("editarPrueba.jsp");
 			dispatcher.forward(request, response);
-
+			}
 		} else if (accion.equals("insertar")) {
 			// Aquí recuperaré los datos y los añadiré a la base de datos
 			System.out.println("Hola, preparado para insertar");
@@ -90,7 +92,7 @@ public class UserController extends HttpServlet {
 			String last_name = request.getParameter("last_name");
 			Date b_date = Date.valueOf(request.getParameter("b_date"));
 			String country = request.getParameter("country");
-			String email = request.getParameter("email");
+			String email = (String)session.getAttribute("email");
 			String pass = request.getParameter("pass");
 
 			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass);

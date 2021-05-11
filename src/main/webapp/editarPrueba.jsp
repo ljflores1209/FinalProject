@@ -40,8 +40,8 @@
             <div class="form-group"><input class="form-control" type="text" name="last_name" placeholder="Apellido"></div>
             <div class="form-group"><input class="form-control" type="date" name="b_date" placeholder="Fecha de nacimiento"></div>
             <div class="form-group"><input class="form-control" type="text" name="country" placeholder="Pais de residencia"></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="email" value="${email }" ></div>
-            <div class="form-group"><input class="form-control" type="text" name="pass" placeholder="pass" value="${pass }" ></div>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="email" readonly value="${email }" ></div>
+            <div class="form-group"><input class="form-control" type="password" name="pass" placeholder="pass" value="${pass }" ></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</button></div><a class="forgot" href="login.jsp">¿Ya estás registrado? Iniciar sesión</a>
             <div class="text-danger"><h6><c:out value="${mensaje}" /></h6></div>
         </form>
