@@ -35,7 +35,7 @@
         <form action="./pepe?accion=nuevo" method="post" >
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="fas fa-rocket" style="color: #5319c3;"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" value="${email}"></div>
             <div class="form-group"><input class="form-control" type="password" name="pass" placeholder="Password"></div>
             <div class="form-group"><input class="form-control" type="password" name="pass1" placeholder="Confirm Password"></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</button></div><a class="forgot" href="login.jsp">¿Ya estás registrado? Iniciar sesión</a>
