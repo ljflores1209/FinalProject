@@ -74,14 +74,13 @@ public class UserController extends HttpServlet {
 				dispatcher.forward(request, response);
 
 			} else {
-			
 
-			UserPojo usuario = new UserPojo(0, email, pass);
-			modeloUser.addUser(usuario);
-			request.setAttribute("email", email);
-			request.setAttribute("pass", pass);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("editarPrueba.jsp");
-			dispatcher.forward(request, response);
+				UserPojo usuario = new UserPojo(0, email, pass);
+				modeloUser.addUser(usuario);
+				request.setAttribute("email", email);
+				request.setAttribute("pass", pass);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("editProfile.jsp");
+				dispatcher.forward(request, response);
 			}
 		} else if (accion.equals("insertar")) {
 			// Aquí recuperaré los datos y los añadiré a la base de datos
@@ -92,12 +91,34 @@ public class UserController extends HttpServlet {
 			String last_name = request.getParameter("last_name");
 			Date b_date = Date.valueOf(request.getParameter("b_date"));
 			String country = request.getParameter("country");
-			String email = (String)session.getAttribute("email");
+			String email = (String) session.getAttribute("email");
 			String pass = request.getParameter("pass");
 
 			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass);
+			System.out.println(usuario.toString());
 			modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email));
+			System.out.println(modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email)));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+			dispatcher.forward(request, response);
 
+		} else if (accion.equals("insertarEmail")) {
+			// Recupero el id y elimino el registro
+			String email = request.getParameter("email");
+			if (!modeloUser.comprobarEmail(email)) {
+
+				System.out.println("entre afuera de if");
+				if (request.getParameter("email") != null) {
+					System.out.println("entre al if");
+
+					session.setAttribute("email", email);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
+					dispatcher.forward(request, response);
+				}
+			}else {
+				session.setAttribute("mensaje", "Este correo ya existe!!");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+				dispatcher.forward(request, response);
+			}
 		} else if (accion.equals("borrar")) {
 			// Recupero el id y elimino el registro
 

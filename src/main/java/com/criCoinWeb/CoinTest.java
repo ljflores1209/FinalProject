@@ -11,7 +11,7 @@ public class CoinTest {
 		UserDAO tio = new UserDAO();
 		
 		
-		
+		System.out.println(tio.comprobarEmail("ppp@gmail.com"));
 		
 		System.out.println(tio.getUserIdByEmail("jose@gmail.com"));
 		//*System.out.println(tio.pruebaVariableSession());

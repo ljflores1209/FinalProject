@@ -173,9 +173,28 @@ public class UserDAO {
 			int res = stmt.executeUpdate();
 			return res;
 		} catch (Exception ex) {
-			System.out.println(ex);
+
+			System.out.println(ex.getMessage());
 			return -1;
+
 		}
+	}
+
+	public boolean comprobarEmail(String email) {
+		try {
+			String sql = "SELECT * FROM user where email = ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, email);
+
+			boolean res = stmt.execute();
+			return res;
+
+		} catch (Exception ex) {
+			System.out.println(ex);
+			return false;
+		}
+
 	}
 
 //--------------------------inicio sesion -----------------------------------------------
