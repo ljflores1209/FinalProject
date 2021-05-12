@@ -41,6 +41,8 @@
                         <input type="email" name ="email" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">
                         <button type="submit" class="btn btn-primary" role="button"  style="background:  #ffdf08;border-radius: 15px; color: var(--gray-dark);">Registrarse</button>
 
+                     	 <h6><c:out value="${mensaje}" /></h6>
+
                      	
                         </form>
                         
