@@ -21,12 +21,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/index.js"></script>
 </head>
 
 <body style="opacity: 1;filter: blur(0px);">
     <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" data-aos="fade" style="filter: blur(0px);opacity: 0.90;">
         <div class="container-fluid"><a class="navbar-brand" href="#"><img src="assets/img/Main%20logo.png" style="width: 149px;margin: 9px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse justify-content-end" id="navcol-1"><span class="navbar-text actions"> <a class="login" href="login.jsp">Iniciar sesión</a><a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a><a class="login" href="#" style="margin-left: 15px;">EUR</a></span></div>
+            <div class="collapse navbar-collapse justify-content-end" id="navcol-1"><span class="navbar-text actions"> <a class="login" href="login.jsp">Iniciar sesion</a><a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a><a class="login" href="#" style="margin-left: 15px;">EUR</a></span></div>
         </div>
     </nav>
     <section data-aos="fade" class="highlight-phone" style="background: rgb(42,7,110);height: 380px;">
@@ -35,7 +36,7 @@
                 <div class="col-md-8" style="margin-top: 25px;">
                     <div class="intro">
                         <h2 style="color: var(--light);">EL EXCHANGE DE CONFIANZA </h2>
-                        <p style="color: var(--light);">En CriCoin te damos el cambio más justo. Somos lideres del sector. &nbsp;</p>
+                        <p style="color: var(--light);">En CriCoin te damos el cambio mas justo. Somos lideres del sector. &nbsp;</p>
                         
                         <form action="./pepe?accion=insertarEmail" method="post"  >
                         <input type="email" name ="email" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">
@@ -70,32 +71,37 @@
                 <div class="col-lg-3 col-sm-6 mt-4"><a href="#">
                         <div class="card">
                             <div class="card-body shadow" data-aos="fade" style="color: rgb(0,0,0);border-radius: 5px;">
-                                <h4 class="card-title" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
-                                <p class="card-text" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                                <span  class="card-title  name " style="color: #000000;"><i class="fa fa-bitcoin"  style="color: #ffdf08;"></i></span>
+                                <span class="siglas"></span>
+                                <p class="price"></p>
+                                <p class="card-text price percentage" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                             </div>
                         </div>
                     </a></div>
                 <div class="col-lg-3 col-sm-6 mt-4"><a href="#">
                         <div class="card">
                             <div class="card-body shadow" data-aos="fade" style="color: rgb(0,0,0);border-radius: 5px;">
-                                <h4 class="card-title" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
-                                <p class="card-text" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                                <h4 class="card-title siglas" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
+                                <span class="siglas"></span>
+                                <p class="card-text price" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                             </div>
                         </div>
                     </a></div>
                 <div class="col-lg-3 col-sm-6 mt-4"><a href="#">
                         <div class="card">
                             <div class="card-body shadow" data-aos="fade" style="color: rgb(0,0,0);border-radius: 5px;">
-                                <h4 class="card-title" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
-                                <p class="card-text" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                                <h4 class="card-title siglas" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
+                                <span class="siglas"></span>
+                                <p class="card-text price" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                             </div>
                         </div>
                     </a></div>
                 <div class="col-lg-3 col-sm-6 mt-4"><a href="#">
                         <div class="card">
                             <div class="card-body shadow" data-aos="fade" style="color: rgb(0,0,0);border-radius: 5px;">
-                                <h4 class="card-title" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
-                                <p class="card-text" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                                <h4 class="card-title siglas" style="color: #000000;"><i class="fa fa-bitcoin" style="color: #ffdf08;"></i>&nbsp;BNB/EUR</h4>
+                                <span class="siglas"></span>
+                                <p class="card-text price" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                             </div>
                         </div>
                     </a></div>
@@ -117,7 +123,7 @@
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid shadow" src="assets/img/mathematics-3821034_640.jpg" style="border-radius: 5px;"></a>
-                    <h3 class="name">¿Cómo funciona CriCoin?</h3>
+                    <h3 class="name">ï¿½Cï¿½mo funciona CriCoin?</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                 </div>
             </div>
@@ -148,13 +154,14 @@
                 </div>
                 <div class="col item social"><a href="#" style="color: #ffdf08;"><i class="icon ion-social-facebook"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-twitter"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-snapchat"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin © 2021</p>
+            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin ï¿½ 2021</p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
 </body>
 
 </html>
