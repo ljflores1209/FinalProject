@@ -107,7 +107,7 @@ public class UserController extends HttpServlet {
 			if (!modeloUser.comprobarEmail(email)) {
 
 				System.out.println("entre afuera de if");
-				if (request.getParameter("email") != null) {
+				if (email != null) {
 					System.out.println("entre al if");
 
 					session.setAttribute("email", email);

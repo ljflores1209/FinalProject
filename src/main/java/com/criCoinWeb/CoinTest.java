@@ -12,7 +12,7 @@ public class CoinTest {
 		
 		
 		System.out.println(tio.comprobarEmail("ppp@gmail.com"));
-		
+		System.out.println(tio.comprobarEmail("jose@gmail.com"));
 		System.out.println(tio.getUserIdByEmail("jose@gmail.com"));
 		//*System.out.println(tio.pruebaVariableSession());
 		//System.out.println(moneda1.getCoin(2));

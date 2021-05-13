@@ -187,8 +187,9 @@ public class UserDAO {
 
 			stmt.setString(1, email);
 
-			boolean res = stmt.execute();
-			return res;
+			ResultSet res = stmt.executeQuery() ;
+
+			return res.next();
 
 		} catch (Exception ex) {
 			System.out.println(ex);
