@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    
     <script src="assets/js/index.js"></script>
 </head>
 <!-- esto es un cambio para borrar -->
@@ -71,12 +70,6 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6 mt-4"><a href="#">
                         <div class="card">
-                            <div class="card-body shadow" data-aos="fade" style="color: rgb(0,0,0);border-radius: 5px;">
-                                <span  class="card-title  name " style="color: #000000;"><i class="fa fa-bitcoin"  style="color: #ffdf08;"></i></span>
-                                <span class="siglas"></span>
-                                <p class="price"></p>
-                                <p class="card-text  percentage" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
-                            </div>
                             <div style="width: 250px; height:220px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid rgb(42,7,110)
 ; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=light&coin_id=859&pref_coin_id=1505" width="250" height="196px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
                         </div>

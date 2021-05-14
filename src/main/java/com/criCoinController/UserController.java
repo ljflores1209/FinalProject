@@ -125,10 +125,6 @@ public class UserController extends HttpServlet {
 			String  password= request.getParameter("password");
 			
 			
-			
-			if (modeloUser.comprobarEmail(emailLogin) ) {
-				System.out.println("que ladilla marico");
-			}
 
 		} else if (accion.equals("editar")) {
 			// Recuperaré el registro que tenga el id que me pasan y
