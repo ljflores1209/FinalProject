@@ -10,10 +10,11 @@ public class CoinTest {
 //		WalletDAO  modelo2 = new WalletDAO();
 		UserDAO tio = new UserDAO();
 		
-		
-		System.out.println(tio.comprobarEmail("ppp@gmail.com"));
-		System.out.println(tio.comprobarEmail("jose@gmail.com"));
-		System.out.println(tio.getUserIdByEmail("jose@gmail.com"));
+		System.out.println(tio.comprobarLogin("luis@gmail.com", "789"));
+		//System.out.println(tio.comprobarEmail("ppp@gmail.com"));
+		//System.out.println(tio.getUserIdByPass("123"));
+		//System.out.println(tio.comprobarEmail("jose@gmail.com"));
+		//System.out.println(tio.getUserIdByEmail("jose@gmail.com"));
 		//*System.out.println(tio.pruebaVariableSession());
 		//System.out.println(moneda1.getCoin(2));
 		//System.out.println(moneda1.getCoin(3));

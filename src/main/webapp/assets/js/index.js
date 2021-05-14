@@ -12,21 +12,15 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoi
 		let name = data[0].name
 		let percentage = data[0].price_change_percentage_24h
 
-		let temporizador = setTimeout(saludo, 1000)
-		
+		let temporizador = setTimeout(saludo(), 1000)
+
 		function saludo() {
-			 console.log("hola");
+			console.log("hola");
 			document.getElementsByClassName("price")[0].innerHTML = price
 			document.getElementsByClassName("siglas")[0].innerHTML = symbol
 			document.getElementsByClassName("name")[0].innerHTML = name
 			document.getElementsByClassName("percentage")[0].innerHTML = percentage
-			let temporizador = setTimeout(saludo, 1000)
+			
 		}
-		saludo()
-		
-
-
-
-
 
 	})

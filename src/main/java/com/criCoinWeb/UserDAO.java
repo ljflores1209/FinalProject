@@ -20,7 +20,9 @@ public class UserDAO {
 		try {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final", "luis", "z3rxgvnbrigspt5b");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final",
+					"luis", "z3rxgvnbrigspt5b");
 
 			System.out.println("ok userDAO");
 
@@ -60,7 +62,7 @@ public class UserDAO {
 	public int getUserIdByEmail(String email) {
 
 		try {
-			String sql = "select id_user from user where email = ? ";
+			String sql = "select * from user where email = ? ";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, email);
@@ -187,7 +189,7 @@ public class UserDAO {
 
 			stmt.setString(1, email);
 
-			ResultSet res = stmt.executeQuery() ;
+			ResultSet res = stmt.executeQuery();
 
 			return res.next();
 
@@ -197,6 +199,40 @@ public class UserDAO {
 		}
 
 	}
+	
+	
+
+	public int getUserIdByPass(String pass) {
+		try {
+			String sql = "select id_user from user where pass = ? ";
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, pass);
+
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				System.out.println("aqui estoy");
+				return rs.getInt("id_user");
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+			return 0;
+		}
+		return -1;
+	}
+
+	public boolean comprobarLogin(String email, String pass) {	
+		if(getUserIdByPass(pass)==getUserIdByEmail(email)) {
+			System.out.println(getUserIdByPass(pass));
+			System.out.println(getUserIdByEmail(email));		
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+
 
 //--------------------------inicio sesion -----------------------------------------------
 	public UserPojo getLogin(int id) {

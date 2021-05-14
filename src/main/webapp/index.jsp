@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    
     <script src="assets/js/index.js"></script>
 </head>
 
@@ -74,7 +75,7 @@
                                 <span  class="card-title  name " style="color: #000000;"><i class="fa fa-bitcoin"  style="color: #ffdf08;"></i></span>
                                 <span class="siglas"></span>
                                 <p class="price"></p>
-                                <p class="card-text price percentage" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                                <p class="card-text  percentage" style="color: rgb(0, 0, 0);">Nullam id dolor id nibh ultricies vehicula ut id elit.</p><a class="card-link" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                             </div>
                         </div>
                     </a></div>

@@ -119,8 +119,16 @@ public class UserController extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 				dispatcher.forward(request, response);
 			}
-		} else if (accion.equals("borrar")) {
+		} else if (accion.equals("login")) {
 			// Recupero el id y elimino el registro
+			String emailLogin = request.getParameter("emailLogin");
+			String  password= request.getParameter("password");
+			
+			
+			
+			if (modeloUser.comprobarEmail(emailLogin) ) {
+				System.out.println("que ladilla marico");
+			}
 
 		} else if (accion.equals("editar")) {
 			// Recuperaré el registro que tenga el id que me pasan y
