@@ -34,7 +34,7 @@
 				<a class="login" href="About.jsp">About&nbsp;</a>
 				<a class="login" href="ranking.jsp">Ranking&nbsp;</a>
 				
-            <%if(session.getAttribute("user")==null){ %>
+            <%if(session.getAttribute("user")==""){ %>
 	           		<a class="login" href="login.jsp">Iniciar sesion</a>
 	           		<a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a>
           	<%} else{ %>
@@ -54,7 +54,7 @@
                         <h2 style="color: var(--light);">EL EXCHANGE DE CONFIANZA </h2>
                         <p style="color: var(--light);">En CriCoin te damos el cambio más justo. Somos lideres del sector. &nbsp;</p>
                         
-                        <%if(session.getAttribute("user")==null){ %>
+                        <%if(session.getAttribute("user")==""){ %>
                         
                         <form action="./controller?accion=insertarEmail" method="post"  >
 	                        <input type="email" name ="email" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">

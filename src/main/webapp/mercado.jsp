@@ -62,7 +62,7 @@
         </div>
     </nav>
     <h1 style="text-align: center;font-size: 33px;padding: 34px;">MERCADO</h1>
-    <%if(session.getAttribute("user")!=null){ %>
+    <%if(session.getAttribute("user")!=""){ %>
     <h2 class="mercado-bienvenido">Bienvenido
     	<c:out value="${user.nick}" />
     </h2>

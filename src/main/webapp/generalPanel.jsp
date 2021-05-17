@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%if(session.getAttribute("user")!=null){ %>
+<%if(session.getAttribute("user")!=""){ %>
 <!DOCTYPE html>
 <html lang="es">
 

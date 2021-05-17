@@ -81,10 +81,10 @@ public class UserController extends HttpServlet {
 
 			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass);
 			modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email));
-//			session = request.getSession(true);
-//			session.setAttribute("user", usuario);
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
-//			dispatcher.forward(request, response);
+			session = request.getSession(true);
+			session.setAttribute("user", usuario);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+			dispatcher.forward(request, response);
 
 		} else if (accion.equals("insertarEmail")) {
 			String email = request.getParameter("email");
@@ -118,8 +118,10 @@ public class UserController extends HttpServlet {
                 dispatcher.forward(request, response);
             }		
 		} else if(accion.equals("cerrarSesion")) {
-			
-			response.sendRedirect("NewFile.jsp");
+			session = request.getSession(true);
+            session.setAttribute("user", "");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
 			
 		} else if(accion.equals("generalPanel")){
 			if(session.getAttribute("user")==null) {

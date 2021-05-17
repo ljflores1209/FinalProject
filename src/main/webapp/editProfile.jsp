@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%if(session.getAttribute("user")!=""){ %>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -236,3 +237,4 @@
 </body>
 
 </html>
+<%}else{ response.sendRedirect("index.jsp");}%>
