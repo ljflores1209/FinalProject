@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
 		super();
 		modeloUser = new UserDAO();
 		modeloWallet = new WalletDAO();
-		modeloCoin = new CoinDAO();
+		modeloCoin = new CoinDAO();		
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class UserController extends HttpServlet {
 		} else if(accion.equals("cerrarSesion")) {
 			session = request.getSession(true);
             session.setAttribute("user", "");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
 			
 		} else if(accion.equals("generalPanel")){
@@ -129,7 +129,18 @@ public class UserController extends HttpServlet {
 			} else {
 				response.sendRedirect("generalPanel.jsp");
 			}
+		} else if(accion.equals("recuperarDatosCartera")){
+			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversión implicita porque el objeto de sesión que se nos pasa es abstracto y aquí lo definimos como UserPojo.
+			modeloCoin.getCoinsByIdUser(user.getId_user());
+			request.setAttribute("datosRecuperados", "ok");
+			
+			request.setAttribute("user", user);
+						
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("generalPanel.jsp");
+            dispatcher.forward(request, response);			
 		}
+		
 	}
 
 	/**

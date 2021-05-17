@@ -8,12 +8,11 @@ import java.net.URL;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class CoinTest {
-
-	public static void main(String[] args) {
+public class ConexionAPI {	
+	public ApiPojo foo() {
 		CoinDAO moneda1 = new CoinDAO();
 		UserDAO tio = new UserDAO();
-
+		ApiPojo apiInfo = new ApiPojo();
 		for(int i = 0; i<moneda1.getCoinsByIdUser(1).size();i++) {
 			System.out.println(moneda1.getCoinsByIdUser(1).get(i).getName());
 					
@@ -26,15 +25,19 @@ public class CoinTest {
 			for(int j=0; j < json.length(); j++)   
 			{  
 			JSONObject object = json.getJSONObject(j);  
-			System.out.println("Esto debería ser un precio: "+object.getInt("current_price"));
-			}
 			
+			apiInfo = new ApiPojo(object.getString("name"), object.getString("symbol"),object.getInt("current_price"));
+
+			}
+
 			}catch(Exception ex) {
 				System.out.println(ex);
 			}
-					
+			
 		}
+		return apiInfo;
 	}
+	
 	public static String peticionHttpGet(String urlParaVisitar) throws Exception {
 		  // Esto es lo que vamos a devolver
 		  StringBuilder resultado = new StringBuilder();

@@ -15,11 +15,9 @@ public class UserPojo {
 	private List<WalletPojo> cartera;
 
 	public UserPojo(int id_user, String email, String pass) {
-
 		this.id_user = id_user;
 		this.email = email;
 		this.pass = pass;
-
 	}
 
 	public UserPojo(int id_user, String nick, String first_name, String last_name, Date b_date, String country,

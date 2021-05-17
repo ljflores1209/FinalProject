@@ -58,6 +58,10 @@ public class UserDAO {
 		}
 		return res;
 	}
+	
+    public void getIdByUser() {
+
+    }
 
 	public List<UserPojo> getUsers() {
 		try {

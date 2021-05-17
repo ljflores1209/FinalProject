@@ -1,5 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%if(session.getAttribute("user")!=""){ %>
+<%if(session.getAttribute("user")!=""){
+	
+	if(request.getAttribute("datosRecuperados")==null){
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./controller?accion=recuperarDatosCartera");
+		dispatcher.forward(request, response);
+	}else if(request.getAttribute("datosRecuperados")=="ok"){
+		System.out.println("Ahora sí, recuperado y seteado el ok");
+	}
+		
+%>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -92,7 +102,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Cell 1</td>
+                        <td><c:out value="${user.cartera}"/></td>
                         <td>Cell 2</td>
                         <td>Cell 2</td>
                         <td>Cell 2</td>
@@ -182,4 +192,4 @@
 </body>
 
 </html>
-<%} else{response.sendRedirect("mercado.jsp");}%>
+<%} else{response.sendRedirect("index.jsp");}%>
