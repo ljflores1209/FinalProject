@@ -23,30 +23,51 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/index.js"></script>
 </head>
-<!-- esto es un cambio para borrar -->
+
 <body style="opacity: 1;filter: blur(0px);">
     <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" data-aos="fade" style="filter: blur(0px);opacity: 0.90;">
-        <div class="container-fluid"><a class="navbar-brand" href="#"><img src="assets/img/Main%20logo.png" style="width: 149px;margin: 9px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse justify-content-end" id="navcol-1"><span class="navbar-text actions"> <a class="login" href="login.jsp">Iniciar sesion</a><a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a><a class="login" href="#" style="margin-left: 15px;">EUR</a></span></div>
+        <div class="container-fluid"><a class="navbar-brand" href="index.jsp"><img src="assets/img/Main%20logo.png" style="width: 149px;margin: 9px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-end" id="navcol-1">
+            <span class="navbar-text actions">
+            	<a class="login" href="mercado.jsp">Mercado&nbsp;</a>
+            	<a class="login" href="blog.jsp">Blog&nbsp;</a>
+				<a class="login" href="About.jsp">About&nbsp;</a>
+				<a class="login" href="ranking.jsp">Ranking&nbsp;</a>
+				
+            <%if(session.getAttribute("user")==null){ %>
+	           		<a class="login" href="login.jsp">Iniciar sesion</a>
+	           		<a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a>
+          	<%} else{ %>
+            		<a class="btn btn-light action-button" href="./controller?accion=cerrarSesion" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Cerrar sesión</a>
+            <%} %>
+	           		<a class="login" href="#" style="margin-left: 15px;">EUR</a>
+           		</span>
+        	</div>
         </div>
     </nav>
+    
     <section data-aos="fade" class="highlight-phone" style="background: rgb(42,7,110);height: 380px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8" style="margin-top: 25px;">
                     <div class="intro">
                         <h2 style="color: var(--light);">EL EXCHANGE DE CONFIANZA </h2>
-                        <p style="color: var(--light);">En CriCoin te damos el cambio mas justo. Somos lideres del sector. &nbsp;</p>
+                        <p style="color: var(--light);">En CriCoin te damos el cambio más justo. Somos lideres del sector. &nbsp;</p>
                         
-                        <form action="./pepe?accion=insertarEmail" method="post"  >
-                        <input type="email" name ="email" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">
-                        <button type="submit" class="btn btn-primary" role="button"  style="background:  #ffdf08;border-radius: 15px; color: var(--gray-dark);">Registrarse</button>
-
-                     	 <h6><c:out value="${mensaje}" /></h6>
-
-                     	
+                        <%if(session.getAttribute("user")==null){ %>
+                        
+                        <form action="./controller?accion=insertarEmail" method="post"  >
+	                        <input type="email" name ="email" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">
+	                        <button type="submit" class="btn btn-primary" role="button"  style="background:  #ffdf08;border-radius: 15px; color: var(--gray-dark);">Registrarse</button>
+	                     	<h6><c:out value="${mensaje}" /></h6>               
                         </form>
                         
+                        <%}else{ %>
+                        	<h3 class="main-bienvenido-h3">Bienvenido <span><c:out value="${user.nick}"/></span></h3>
+                        	<span class="navbar-text actions">
+            					<a class="btn btn-light action-button" href="./controller?accion=generalPanel" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Perfil</a>
+           					</span>
+                        <%} %>
                     </div>
                 </div>
                 <div class="col-sm-4">

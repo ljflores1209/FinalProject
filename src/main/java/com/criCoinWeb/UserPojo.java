@@ -46,8 +46,8 @@ public class UserPojo {
 	}
 
 	public void setNick(String nick) {
-		this.nick = nick;
-	}
+			this.nick = nick;
+	}	
 
 	public String getFirst_name() {
 		return first_name;

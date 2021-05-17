@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+.mercado-bienvenido{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 32px;
+}
+
+.mercado-container{
+	display: flex;
+}
+
+.mercado-big-container{
+/* 	display: none */
+}
+
+.mercado-coin-graph{
+/* 	display: none; */
+}
+.mercado-coin-list{
+/* 	display: none; */
+}
+
+.mercado-coin-conversor{
+/*     display: none */
+}
+
+.mercado-suite{
+	height: 500px;
+	width: 500px;
+	border: 1px solid;
+}

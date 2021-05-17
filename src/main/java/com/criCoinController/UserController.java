@@ -2,6 +2,8 @@ package com.criCoinController;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +18,7 @@ import com.criCoinWeb.*;
 /**
  * Servlet implementation class CriCoinController
  */
-@WebServlet("/pepe")
+@WebServlet("/controller")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDAO modeloUser;
@@ -32,7 +34,6 @@ public class UserController extends HttpServlet {
 		modeloUser = new UserDAO();
 		modeloWallet = new WalletDAO();
 		modeloCoin = new CoinDAO();
-
 	}
 
 	/**
@@ -42,39 +43,26 @@ public class UserController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String accion = request.getParameter("accion");
-		System.out.println(accion);
-		session = request.getSession(true);
 
-		if (accion == null) {
-			accion = "";
-		}
 		if (accion.equals("nuevo")) {
-			// Pondré el código para mostrar la página para introducir los nuevos datos
 			String pass = request.getParameter("pass");
 			String pass1 = request.getParameter("pass1");
 			String email = (request.getParameter("email"));
-
-//			System.out.println(pass);
-//			System.out.println(pass1);
-//			System.out.println(email);
-//			
+	
 			if (pass.equals("") || pass == null || pass1.equals("") || pass1 == null || email.equals("")
 					|| email == null) {
-
 				request.setAttribute("mensaje", "Debes rellenar todos los campos");
 				request.setAttribute("email", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 				dispatcher.forward(request, response);
 
 			} else if (!pass.equals(pass1)) {
-
 				request.setAttribute("mensaje", "La contraseña no coincide");
 				request.setAttribute("email", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 				dispatcher.forward(request, response);
 
 			} else {
-
 				UserPojo usuario = new UserPojo(0, email, pass);
 				modeloUser.addUser(usuario);
 				request.setAttribute("email", email);
@@ -83,60 +71,63 @@ public class UserController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		} else if (accion.equals("insertar")) {
-			// Aquí recuperaré los datos y los añadiré a la base de datos
-			System.out.println("Hola, preparado para insertar");
-
 			String nick = request.getParameter("nick");
 			String first_name = request.getParameter("first_name");
 			String last_name = request.getParameter("last_name");
 			Date b_date = Date.valueOf(request.getParameter("b_date"));
 			String country = request.getParameter("country");
-			String email = (String) session.getAttribute("email");
+			String email = request.getParameter("email");
 			String pass = request.getParameter("pass");
 
 			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass);
-			System.out.println(usuario.toString());
 			modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email));
-			System.out.println(modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email)));
-			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
-			dispatcher.forward(request, response);
+//			session = request.getSession(true);
+//			session.setAttribute("user", usuario);
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+//			dispatcher.forward(request, response);
 
 		} else if (accion.equals("insertarEmail")) {
-			// Recupero el id y elimino el registro
 			String email = request.getParameter("email");
-			if (!modeloUser.comprobarEmail(email)) {
-
-				System.out.println("entre afuera de if");
-				if (email != null) {
-					System.out.println("entre al if");
-
-					session.setAttribute("email", email);
+			if (!modeloUser.comprobarSiExisteEmail(email)) {
+				if (email != null) {					
+					request.setAttribute("email", email);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 					dispatcher.forward(request, response);
 				}
 			}else {
-				session.setAttribute("mensaje", "Este correo ya existe!!");
+				request.setAttribute("mensaje", "Este correo ya está en uso");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 				dispatcher.forward(request, response);
 			}
 		} else if (accion.equals("login")) {
-			// Recupero el id y elimino el registro
-			String emailLogin = request.getParameter("emailLogin");
-			String  password= request.getParameter("password");
+            String emailLogin = request.getParameter("emailLogin");
+            String  password= request.getParameter("password");
+
+            if(modeloUser.comprobarSiExisteEmail(emailLogin) && modeloUser.comprobarPassword(modeloUser.getUserIdByEmail(emailLogin)).equals(password)) {
+                System.out.println("Usuario encontrado");
+                session = request.getSession(true);
+                session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(emailLogin)));
+
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+                dispatcher.forward(request, response);
+            }else {
+                System.out.println("Usuario NO encontrado");
+                request.setAttribute("mensajeLogin", "Usuario o contraseña invalidos");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+                dispatcher.forward(request, response);
+            }		
+		} else if(accion.equals("cerrarSesion")) {
 			
+			response.sendRedirect("NewFile.jsp");
 			
-
-		} else if (accion.equals("editar")) {
-			// Recuperaré el registro que tenga el id que me pasan y
-			// Mandaré los datos a una página para que el usuario los modifique
-
-		} else if (accion.equals("modificar")) {
-			// Recupero los datos que me pasan y modifico el registro en la base de datos
-
-		} else {
-
+		} else if(accion.equals("generalPanel")){
+			if(session.getAttribute("user")==null) {
+				response.sendRedirect("index.jsp");
+			} else {
+				response.sendRedirect("generalPanel.jsp");
+			}
 		}
-
 	}
 
 	/**

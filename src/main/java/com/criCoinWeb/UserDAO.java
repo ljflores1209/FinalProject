@@ -59,28 +59,6 @@ public class UserDAO {
 		return res;
 	}
 
-	public int getUserIdByEmail(String email) {
-
-		try {
-			String sql = "select * from user where email = ? ";
-			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setString(1, email);
-
-			ResultSet rs = stmt.executeQuery();
-
-			if (rs.next()) {
-				System.out.println("aqui estoy");
-
-				return rs.getInt("id_user");
-			}
-		} catch (Exception ex) {
-			System.out.println(ex);
-
-		}
-		return -1;
-	}
-
 	public List<UserPojo> getUsers() {
 		try {
 			String sql = "select * from user limit ?";
@@ -182,7 +160,7 @@ public class UserDAO {
 		}
 	}
 
-	public boolean comprobarEmail(String email) {
+	public boolean comprobarSiExisteEmail(String email) {
 		try {
 			String sql = "SELECT * FROM user where email = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -200,37 +178,105 @@ public class UserDAO {
 
 	}
 	
+//	public List<UserPojo> getUsersByPassword(String pass) {
+//		try {
+//			String sql = "select * from user where pass = ? ";
+//			PreparedStatement stmt = con.prepareStatement(sql);
+//
+//			stmt.setString(1, pass);
+//
+//			ResultSet rs = stmt.executeQuery();
+//			
+//			List<UserPojo> userList = new ArrayList<UserPojo>();
+//
+//			while (rs.next()) {
+//				UserPojo user = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
+//						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
+//						rs.getString("pass"));
+//
+//				userList.add(user);
+//			}
+//			return userList;
+//		} catch (Exception ex) {
+//			System.out.println(ex);
+//			return null;
+//		}
+//	}
 	
+	public int getUserIdByEmail(String email) {
 
-	public int getUserIdByPass(String pass) {
 		try {
-			String sql = "select id_user from user where pass = ? ";
+			String sql = "select * from user where email = ? ";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			stmt.setString(1, pass);
+			stmt.setString(1, email);
 
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				System.out.println("aqui estoy");
+				System.out.println(rs.getInt("id_user"));
 				return rs.getInt("id_user");
 			}
 		} catch (Exception ex) {
 			System.out.println(ex);
-			return 0;
+
 		}
 		return -1;
 	}
+	
+	public String comprobarPassword(int id) {
 
-	public boolean comprobarLogin(String email, String pass) {	
-		if(getUserIdByPass(pass)==getUserIdByEmail(email)) {
-			System.out.println(getUserIdByPass(pass));
-			System.out.println(getUserIdByEmail(email));		
-			return true;
-		}else {
-			return false;
-		}
-	}
+        try {
+            String sql = "select * from user where id_user = ? ";
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                //System.out.println("aqui estoy");
+
+                return rs.getString("pass");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
+        return "";
+    }
+	
+//	public int getUserIdByPass(String pass) {
+//		try {
+//			String sql = "select id_user from user where pass = ? ";
+//			PreparedStatement stmt = con.prepareStatement(sql);
+//
+//			stmt.setString(1, pass);
+//
+//			ResultSet rs = stmt.executeQuery();
+//
+//			if (rs.next()) {
+//				System.out.println(rs.getInt("id_user"));
+//				return rs.getInt("id_user");
+//			}
+//		} catch (Exception ex) {
+//			System.out.println(ex);
+//			return 0;
+//		}
+//		return -1;
+//	}
+//
+//	public boolean comprobarLogin(String email, String pass) {	
+//		if(getUserIdByPass(pass)==getUserIdByEmail(email)) {
+//			System.out.println(getUserIdByPass(pass));
+//			System.out.println("hola");
+//			System.out.println(getUserIdByEmail(email));		
+//			return true;
+//		}else {
+//			System.out.println("adios");
+//			return false;
+//		}
+//	}
 
 
 

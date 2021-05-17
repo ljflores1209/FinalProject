@@ -61,7 +61,7 @@
 		class="navbar navbar-light navbar-expand-md sticky-top navigation-clean"
 		style="box-shadow: 0px 0px 6px 0px; opacity: 0.90;">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img
+			<a class="navbar-brand" href="index.jsp"><img
 				src="assets/img/Main%20logo.png" style="width: 149px;"></a>
 			<button data-toggle="collapse" class="navbar-toggler"
 				data-target="#navcol-1">
@@ -85,7 +85,7 @@
 	</nav>
 	<div class="row no-gutters register-form">
 		<div class="col-md-8 offset-md-2">
-			<form action="./pepe?accion=insertar" method="post" class="custom-form" >
+			<form action="./controller?accion=insertar" method="post" class="custom-form" >
 				<h1 style="border-bottom-style: none;">Rellenar Perfil</h1>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">

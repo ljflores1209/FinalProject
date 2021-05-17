@@ -1,3 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
+<%if(session.getAttribute("user")==null){ %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,13 +29,12 @@
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
     <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" data-aos="fade" style="filter: blur(0px);opacity: 0.90;">
         <div class="container-fluid"><a class="navbar-brand" href="index.jsp"><img src="assets/img/Main%20logo.png" style="width: 149px;margin: 9px;"></a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
     </nav>
     <section class="login-clean">
-        <form action="./pepe?accion=login" method="post">
+        <form action="./controller?accion=login" method="post">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="fas fa-rocket" style="color: #5319c3;"></i></div>
             <div class="form-group"><input class="form-control" type="email" name="emailLogin" placeholder="Email"></div>
@@ -44,5 +47,7 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
-
 </html>
+
+<%}else{ response.sendRedirect("index.jsp");}%>
+

@@ -45,14 +45,14 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean" style="box-shadow: 0px 0px 6px 0px;opacity: 0.90;">
-        <div class="container-fluid"><a class="navbar-brand" href="#"><img src="assets/img/Main%20logo.png" style="width: 149px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="index.jsp"><img src="assets/img/Main%20logo.png" style="width: 149px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Mercado</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Academia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ranking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mercado.jsp">Mercado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil&nbsp;<i class="fa fa-user" style="color: #2a076e;"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Perfil&nbsp;<i class="fa fa-user" style="color: #2a076e;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-bell" style="color: #2a076e;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="#">EUR</a></li>
                 </ul>
