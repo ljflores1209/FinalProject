@@ -10,51 +10,54 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ConexionAPI {	
+public class ConexionAPI {
 	public List<ApiPojo> infoMonedasUserById(int id) {
 		CoinDAO moneda1 = new CoinDAO();
 		ApiPojo coinInfo = new ApiPojo();
 		List<ApiPojo> listaDatosMonedas = new ArrayList<ApiPojo>();
-		
-		for(int i = 0; i < moneda1.getCoinsByIdUser(id).size(); i++) {					
+		List<WalletPojo> listaUsuarioMonedas = moneda1.getCoinsByIdUser(id);
+		for (int i = 0; i < listaUsuarioMonedas.size(); i++) {
 			try {
-			String resultado=peticionHttpGet("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+moneda1.getCoinsByIdUser(id).get(i).getName()+"&order=market_cap_desc&per_page=100&page=1&sparkline=false");			
-			JSONArray json = new JSONArray(resultado);
-//			System.out.println(json);
-			
-			for(int j=0; j < json.length(); j++){  
-				JSONObject object = json.getJSONObject(j);  	
-				coinInfo = new ApiPojo(object.getString("name"), object.getString("symbol"),object.getInt("current_price"));
+				String resultado = peticionHttpGet("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="
+						+ listaUsuarioMonedas.get(i).getMoneda().getName()
+						+ "&order=market_cap_desc&per_page=100&page=1&sparkline=false");//
+				JSONArray json = new JSONArray(resultado);
+				System.out.println(json);
+
+				JSONObject object = json.getJSONObject(0);
+				coinInfo = new ApiPojo(object.getString("name"), object.getString("symbol"),
+						object.getInt("current_price"), listaUsuarioMonedas.get(i).getTotal_coin());
 				listaDatosMonedas.add(coinInfo);
-			}			
-			// object.getInt("current_price")) * peticionDAOCuantasMonedasdeEstasTengo			
-			}catch(Exception ex) {
+
+				// object.getInt("current_price")) * peticionDAOCuantasMonedasdeEstasTengo
+			} catch (Exception ex) {
 				System.out.println(ex);
-			}			
+			}
 		}
+		System.out.println(listaDatosMonedas);
 		return listaDatosMonedas;
 	}
-	
+
 	public static String peticionHttpGet(String urlParaVisitar) throws Exception {
-		  // Esto es lo que vamos a devolver
-		  StringBuilder resultado = new StringBuilder();
-		  // Crear un objeto de tipo URL
-		  URL url = new URL(urlParaVisitar);
-		
-		  // Abrir la conexión e indicar que será de tipo GET
-		  HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-		  conexion.setRequestMethod("GET");
-		  // Búferes para leer
-		  BufferedReader rd = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
-		  String linea;
-		  // Mientras el BufferedReader se pueda leer, agregar contenido a resultado
-		  while ((linea = rd.readLine()) != null) {
-		    resultado.append(linea);
-		  }
-		  // Cerrar el BufferedReader
-		  rd.close();
-		  // Regresar resultado, pero como cadena, no como StringBuilde
-		 		  
-		  return resultado.toString();		  
+		// Esto es lo que vamos a devolver
+		StringBuilder resultado = new StringBuilder();
+		// Crear un objeto de tipo URL
+		URL url = new URL(urlParaVisitar);
+
+		// Abrir la conexión e indicar que será de tipo GET
+		HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+		conexion.setRequestMethod("GET");
+		// Búferes para leer
+		BufferedReader rd = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+		String linea;
+		// Mientras el BufferedReader se pueda leer, agregar contenido a resultado
+		while ((linea = rd.readLine()) != null) {
+			resultado.append(linea);
+		}
+		// Cerrar el BufferedReader
+		rd.close();
+		// Regresar resultado, pero como cadena, no como StringBuilde
+
+		return resultado.toString();
 	}
 }

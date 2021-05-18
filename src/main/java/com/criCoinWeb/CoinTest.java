@@ -13,6 +13,7 @@ public class CoinTest {
 //		System.out.println(conexionApi.foo(tio.getUserIdByEmail("pepe@gmail.com")));
 		System.out.println(conexionApi.infoMonedasUserById(1));
 		
+		System.out.println(conexionApi.infoMonedasUserById(1).get(0).getTotal());
 		
 		
 	}
