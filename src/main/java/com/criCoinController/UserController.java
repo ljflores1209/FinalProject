@@ -25,6 +25,7 @@ public class UserController extends HttpServlet {
 	private WalletDAO modeloWallet;
 	private CoinDAO modeloCoin;
 	private HttpSession session;
+	private ConexionAPI conexionApi;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -34,6 +35,7 @@ public class UserController extends HttpServlet {
 		modeloUser = new UserDAO();
 		modeloWallet = new WalletDAO();
 		modeloCoin = new CoinDAO();		
+		conexionApi = new ConexionAPI();
 	}
 
 	/**
@@ -104,15 +106,12 @@ public class UserController extends HttpServlet {
             String  password= request.getParameter("password");
 
             if(modeloUser.comprobarSiExisteEmail(emailLogin) && modeloUser.comprobarPassword(modeloUser.getUserIdByEmail(emailLogin)).equals(password)) {
-                System.out.println("Usuario encontrado");
                 session = request.getSession(true);
                 session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(emailLogin)));
-
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
                 dispatcher.forward(request, response);
             }else {
-                System.out.println("Usuario NO encontrado");
                 request.setAttribute("mensajeLogin", "Usuario o contraseña invalidos");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
                 dispatcher.forward(request, response);
@@ -131,11 +130,14 @@ public class UserController extends HttpServlet {
 			}
 		} else if(accion.equals("recuperarDatosCartera")){
 			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversión implicita porque el objeto de sesión que se nos pasa es abstracto y aquí lo definimos como UserPojo.
-			modeloCoin.getCoinsByIdUser(user.getId_user());
 			request.setAttribute("datosRecuperados", "ok");
 			
 			request.setAttribute("user", user);
-						
+			
+			ConexionAPI conexionApi = new ConexionAPI();	
+//			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
+			request.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
+				
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("generalPanel.jsp");
             dispatcher.forward(request, response);			

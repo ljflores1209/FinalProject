@@ -18,25 +18,17 @@ public class UserDAO {
 
 	public UserDAO() {
 		try {
-
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection(
-					"jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final",
-					"luis", "z3rxgvnbrigspt5b");
-
-			System.out.println("ok userDAO");
-
+			con = DriverManager.getConnection("jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final", "luis", "z3rxgvnbrigspt5b");
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
-
 	}
 
 	public UserPojo getUser(int id) {
 
 		UserPojo res = null;
 		WalletDAO cartera = new WalletDAO();
-
 		try {
 			String sql = "select * from user where id_user=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -49,19 +41,13 @@ public class UserDAO {
 						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
 						rs.getString("pass"));
 				res.setCartera(cartera.getWalletUser(rs.getInt("id_user")));
-
 			}
-
 		} catch (Exception ex) {
 			System.out.println(ex);
 
 		}
 		return res;
 	}
-	
-    public void getIdByUser() {
-
-    }
 
 	public List<UserPojo> getUsers() {
 		try {
@@ -77,7 +63,6 @@ public class UserDAO {
 				UserPojo user = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
 						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
 						rs.getString("pass"));
-
 				userList.add(user);
 			}
 			return userList;
@@ -160,7 +145,6 @@ public class UserDAO {
 
 			System.out.println(ex.getMessage());
 			return -1;
-
 		}
 	}
 
@@ -172,7 +156,6 @@ public class UserDAO {
 			stmt.setString(1, email);
 
 			ResultSet res = stmt.executeQuery();
-
 			return res.next();
 
 		} catch (Exception ex) {
@@ -208,7 +191,6 @@ public class UserDAO {
 //	}
 	
 	public int getUserIdByEmail(String email) {
-
 		try {
 			String sql = "select * from user where email = ? ";
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -229,7 +211,6 @@ public class UserDAO {
 	}
 	
 	public String comprobarPassword(int id) {
-
         try {
             String sql = "select * from user where id_user = ? ";
             PreparedStatement stmt = con.prepareStatement(sql);

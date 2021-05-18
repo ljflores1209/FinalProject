@@ -28,7 +28,7 @@ public class UserPojo {
 		this.last_name = last_name;
 		this.b_date = b_date;
 		this.country = country;
-		cartera = new ArrayList<WalletPojo>();
+		this.cartera = new ArrayList<WalletPojo>();
 	}
 
 	public int getId_user() {

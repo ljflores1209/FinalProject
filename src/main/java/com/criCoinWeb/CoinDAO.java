@@ -23,8 +23,6 @@ public class CoinDAO {
             
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final", "luis", "z3rxgvnbrigspt5b");
- 
-            System.out.println("ok CoinDAO");
             
         } catch (Exception ex) {
             System.out.println(ex);

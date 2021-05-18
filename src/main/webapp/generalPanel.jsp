@@ -5,7 +5,7 @@
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./controller?accion=recuperarDatosCartera");
 		dispatcher.forward(request, response);
 	}else if(request.getAttribute("datosRecuperados")=="ok"){
-		System.out.println("Ahora sÌ, recuperado y seteado el ok");
+		System.out.println("Ahora sÌ, entramos a generalPanel logueado y con los datos recuperados");
 	}
 		
 %>
@@ -95,24 +95,24 @@
                     <tr>
                         <th>Moneda</th>
                         <th>Total</th>
-                        <th>Disponible</th>
-                        <th>En √≥rdenes</th>
-                        <th>Acci√≥n</th>
+                        <th>Estimado</th>
+                        <th>AcciÛn</th>
                     </tr>
                 </thead>
                 <tbody>
+
+                
                     <tr>
-                        <td><c:out value="${user.cartera}"/></td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
+                        <td><c:out value="${user.cartera[0].moneda.name}"/></td>
+                        <td><c:out value="${user.cartera[0].total_coin}"/></td>
+                        <td><c:out value="${user.cartera[0].total_coin * wallet[0].current_price}"/></td>
                         <td><button class="btn btn-primary" type="button" style="background: #ffdf08;border-radius: 5px;color: rgb(0,0,0);">Comprar</button><button class="btn btn-primary" type="button" style="background: #ffdf08;margin-left: 14px;border-radius: 5px;color: rgb(0,0,0);">Vender</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <h1 style="font-size: 33px;padding: 28px;margin-top: 43px;">Hist√≥rico de transacciones</h1>
+    <h1 style="font-size: 33px;padding: 28px;margin-top: 43px;">HistÛrico de transacciones</h1>
     <div class="container" style="margin-bottom: 53px;box-shadow: 0px 0px 6px;">
         <div class="table-responsive">
             <table class="table">
@@ -120,7 +120,7 @@
                     <tr>
                         <th>Fecha</th>
                         <th>Par</th>
-                        <th>Operaci√≥n</th>
+                        <th>Operaciones</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Comisiones</th>

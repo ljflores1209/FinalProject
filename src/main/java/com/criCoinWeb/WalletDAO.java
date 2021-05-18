@@ -13,16 +13,12 @@ public class WalletDAO {
     private int max_records = 1000;
  
     public WalletDAO() {
-        try {
-            
+        try {            
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final", "luis", "z3rxgvnbrigspt5b");
-            System.out.println("ok walletDAO");
-            
+            con = DriverManager.getConnection("jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final", "luis", "z3rxgvnbrigspt5b");   
         } catch (Exception ex) {
             System.out.println(ex);
         }
-
     }
     
     public WalletPojo getWallet(int id) {
@@ -36,8 +32,7 @@ public class WalletDAO {
              
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-            	res = new WalletPojo(rs.getInt("id_wallet"),rs.getDouble("total_coin"),rs.getInt("id_user"),rs.getInt("id_coin"), moneda.getCoin(rs.getInt("id_coin")));
-                
+            	res = new WalletPojo(rs.getInt("id_wallet"),rs.getDouble("total_coin"),rs.getInt("id_user"),rs.getInt("id_coin"), moneda.getCoin(rs.getInt("id_coin")));               
             }
             
              
@@ -77,10 +72,7 @@ public class WalletDAO {
  
             stmt.setInt(1, wallet.getId_user());
             stmt.setInt(2, wallet.getId_coin());
-            
-            
-            
- 
+                      
             int res = stmt.executeUpdate();
             return res;
         } catch (Exception ex) {
@@ -120,7 +112,6 @@ public class WalletDAO {
             return -1;
         }
 	
-}
-    
+    }    
 
 }
