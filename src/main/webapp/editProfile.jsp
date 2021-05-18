@@ -86,7 +86,7 @@
 	</nav>
 	<div class="row no-gutters register-form">
 		<div class="col-md-8 offset-md-2">
-			<form action="./controller?accion=insertar" method="post" class="custom-form" >
+			<form action="./controller?accion=insertar" method="post" id="profile" onsubmit="return profileValidate()" name="prof" class="custom-form" >
 				<h1 style="border-bottom-style: none;">Rellenar Perfil</h1>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
@@ -94,40 +94,55 @@
 						</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="email" type="email" readonly value="${email}" >
+						<input id="inputEmail" class="form-control" name="email" type="text" readonly value="${email}" >
+					<div class="invalid-feedback" id="errorEmail"></div>
+
 					</div>
+
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
-						<label class="col-form-label" for="pawssword-input-field">Contraseña</label>
+						<label class="col-form-label" for="pawssword-input-field">Contraseï¿½a</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="pass" type="password" value="${pass}">
+						<input id="inputPassword" class="form-control" name="pass" type="password" value="${pass}">
+					<div class="invalid-feedback" id="errorPassword"></div>
+
 					</div>
+
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
 						<label class="col-form-label" for="name-input-field">Nick</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="nick" type="text">
+						<input id="inputNick" class="form-control" name="nick" type="text">
+					<div class="invalid-feedback" id="errorNick"></div>
+
 					</div>
+
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
 						<label class="col-form-label" for="name-input-field">Nombre</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="first_name" type="text">
+						<input id="inputName" class="form-control" name="first_name" type="text">
+					<div class="invalid-feedback" id="errorName"></div>
+
 					</div>
+
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
 						<label class="col-form-label" for="name-input-field">Apellidos</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="last_name" type="text">
+						<input id="inputLastName" class="form-control" name="last_name" type="text">
+					<div class="invalid-feedback" id="errorLastName"></div>
+
 					</div>
+
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
@@ -135,8 +150,11 @@
 							nacimiento</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="b_date" type="text">
+						<input id="inputDate" class="form-control" name="b_date" type="text" placeholder="DD/MM/YYYY">
+					<div class="invalid-feedback" id="errorDate"></div>
+
 					</div>
+
 				</div>
 
 				<div class="form-row form-group">
@@ -145,15 +163,18 @@
 							de residencia</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input class="form-control" name="country" type="text">
+						<input id="inputCountry" class="form-control" name="country" type="text">
+					<div class="invalid-feedback" id="errorCountry"></div>
+
 					</div>
+
 				</div>
 
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" id="formCheck-1"><label
 						class="form-check-label" for="formCheck-1">He leido, y acepto la politica de privacidad</label>
 				</div>
-				<button class="btn btn-light submit-button" type="submit"
+				<button id="submit" class="btn btn-light submit-button" type="submit"
 					style="background: #ffdf08; height: 47px; color: rgb(0, 0, 0); border-radius: 5px;">Enviar</button>
 			</form>
 		</div>
@@ -234,6 +255,7 @@
 		src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 	<script src="assets/js/Bootstrap-DataTables.js"></script>
 	<script src="assets/js/DataTable---Fully-BSS-Editable.js"></script>
+	<script src="assets/js/editProfile.js"></script>
 </body>
 
 </html>
