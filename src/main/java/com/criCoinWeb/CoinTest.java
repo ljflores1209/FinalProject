@@ -11,9 +11,10 @@ public class CoinTest {
 		
 		ConexionAPI conexionApi = new ConexionAPI();
 //		System.out.println(conexionApi.foo(tio.getUserIdByEmail("pepe@gmail.com")));
-		System.out.println(conexionApi.infoMonedasUserById(1));
+//		System.out.println(conexionApi.infoMonedasUserById(1));
 		
-		System.out.println(conexionApi.infoMonedasUserById(1).get(0).getTotal());
+//		System.out.println(conexionApi.infoMonedasUserById(1).get(0).getTotal());
+		System.out.println(conexionApi.bitcoinGetter());
 		
 		
 	}

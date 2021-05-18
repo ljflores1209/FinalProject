@@ -101,12 +101,28 @@ if (session.getAttribute("user") != "") {
 			<div class="col-md-6" style="box-shadow: 0px 0px 6px;">
 				<form
 					style="margin-bottom: 27px; text-align: left; margin-top: 12px;">
-					<label>Resumen Balance:&nbsp;</label><input class="form-control"
-						type="text">
+					<label>Valor estimado:&nbsp;</label>
+					
+					<div class="form-control">
+
+						<c:set var="cont" scope="session" value="${0}" />
+						<c:forEach var="wallet" items="${wallet}">
+							<tr>
+
+								<c:set var="cont" value="${cont + wallet.getTotal()}" />
+
+							</tr>
+						</c:forEach>
+						<c:out value="${cont} $" />
+					</div>
 				</form>
 				<form style="text-align: left;">
-					<label>Valor Estimado:&nbsp;</label><input class="form-control"
-						type="text">
+					<label>Resumen Balance:&nbsp;</label>
+					<div class="form-control">
+
+						<c:out value="${cont / precioBit.current_price} BTC" />
+						
+					</div>
 				</form>
 			</div>
 			<div class="col-md-6" style="text-align: left;">
@@ -135,12 +151,12 @@ if (session.getAttribute("user") != "") {
 					</tr>
 				</thead>
 				<tbody>
-				
+
 					<c:forEach var="wallet" items="${wallet}">
 						<tr>
 							<td><c:out value="${wallet.name}" /></td>
 							<td><c:out value="${wallet.symbol}" /></td>
-							<td><c:out value="${wallet.total_price}" /></td>			
+							<td><c:out value="${wallet.getTotal()}" /></td>
 							<td><button class="btn btn-primary" type="button"
 									style="background: #ffdf08; border-radius: 5px; color: rgb(0, 0, 0);">Comprar</button>
 								<button class="btn btn-primary" type="button"
@@ -148,7 +164,7 @@ if (session.getAttribute("user") != "") {
 						</tr>
 					</c:forEach>
 
-					
+
 				</tbody>
 			</table>
 		</div>

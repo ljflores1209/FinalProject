@@ -9,6 +9,8 @@ public class ApiPojo {
 	public double getTotal() {
 		return quantity*current_price;
 	}
+	
+	
 	public double getQuantity() {
 		return quantity;
 	}

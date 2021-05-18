@@ -122,12 +122,7 @@ public class UserController extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
 			
-		} else if(accion.equals("generalPanel")){
-			if(session.getAttribute("user")==null) {
-				response.sendRedirect("index.jsp");
-			} else {
-				response.sendRedirect("generalPanel.jsp");
-			}
+		
 		} else if(accion.equals("recuperarDatosCartera")){
 			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversión implicita porque el objeto de sesión que se nos pasa es abstracto y aquí lo definimos como UserPojo.
 			request.setAttribute("datosRecuperados", "ok");
@@ -137,6 +132,7 @@ public class UserController extends HttpServlet {
 			ConexionAPI conexionApi = new ConexionAPI();	
 //			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
 			request.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
+			request.setAttribute("precioBit", conexionApi.bitcoinGetter());
 				
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("generalPanel.jsp");
