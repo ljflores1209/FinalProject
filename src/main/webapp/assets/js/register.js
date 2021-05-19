@@ -33,19 +33,19 @@ function registerValidate() {
 		acumErrores ++;
 	}else if(inputPassword.value.length < 6) {
 		inputPassword.classList.add('is-invalid');
-		document.getElementById('errorPassword').textContent = 'Minimo 6 caracteres';
+		document.getElementById('errorPassword').textContent = 'Mínimo 6 caracteres';
 		acumErrores ++; 
 		} else if(!inputPassword.value.match(lcl)) {
 			inputPassword.classList.add('is-invalid');
-			document.getElementById('errorPassword').textContent = 'Minimo 1 minuscula';
+			document.getElementById('errorPassword').textContent = 'Mínimo 1 minúscula';
 			acumErrores ++; 
 		} else if(!inputPassword.value.match(ucl)) {
 			inputPassword.classList.add('is-invalid');
-			document.getElementById('errorPassword').textContent = 'Minimo 1 mayuscula';
+			document.getElementById('errorPassword').textContent = 'Mínimo 1 mayúscula';
 			acumErrores ++; 
 		} else if(!inputPassword.value.match(numbers)) {
 			inputPassword.classList.add('is-invalid');
-			document.getElementById('errorPassword').textContent = 'Minimo 1 numero';
+			document.getElementById('errorPassword').textContent = 'Mínimo 1 número';
 			acumErrores ++; 
 		}
 	
@@ -57,7 +57,7 @@ function registerValidate() {
 
 	if(inputPassword.value !== inputConfirmPassword.value) {
 		inputConfirmPassword.classList.add("is-invalid");
-		document.getElementById("errorConfirmPassword").textContent = "Contrasenas no coinciden";
+		document.getElementById("errorConfirmPassword").textContent = "Las contraseñas no coinciden";
 		acumErrores ++;
 	}
 
