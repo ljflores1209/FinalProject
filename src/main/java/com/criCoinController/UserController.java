@@ -70,6 +70,7 @@ public class UserController extends HttpServlet {
 				request.setAttribute("email", email);
 				request.setAttribute("pass", pass);
 				request.setAttribute("user", usuario);
+				request.setAttribute("capital", 100.00);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("editProfile.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -81,11 +82,9 @@ public class UserController extends HttpServlet {
 			String country = request.getParameter("country");
 			String email = request.getParameter("email");
 			String pass = request.getParameter("pass");
-			System.out.println("hola que ase");
-			System.out.println("hola que ase");
-			System.out.println("hola que ase");
-			System.out.println("hola que ase");
-			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass);
+			Double capital = Double.parseDouble(request.getParameter("capital"));
+			
+			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass, capital);
 			modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email));
 			session = request.getSession(true);
 			session.setAttribute("user", usuario);

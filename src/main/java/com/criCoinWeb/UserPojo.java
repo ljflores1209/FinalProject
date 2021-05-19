@@ -12,7 +12,9 @@ public class UserPojo {
 	private String country;
 	private String email;
 	private String pass;
+	private Double capital;
 	private List<WalletPojo> cartera;
+	
 
 	public UserPojo(int id_user, String email, String pass) {
 		this.id_user = id_user;
@@ -21,7 +23,7 @@ public class UserPojo {
 	}
 
 	public UserPojo(int id_user, String nick, String first_name, String last_name, Date b_date, String country,
-			String email, String pass) {
+			String email, String pass, Double capital) {
 		this(id_user, email, pass);
 		this.nick = nick;
 		this.first_name = first_name;
@@ -29,6 +31,7 @@ public class UserPojo {
 		this.b_date = b_date;
 		this.country = country;
 		this.cartera = new ArrayList<WalletPojo>();
+		this.capital = 0.00;
 	}
 
 	public int getId_user() {
@@ -103,11 +106,23 @@ public class UserPojo {
 		this.cartera = cartera;
 	}
 
+	public Double getCapital() {
+		return capital;
+	}
+
+	public void setCapital(Double capital) {
+		this.capital = capital;
+	}
+
 	@Override
 	public String toString() {
 		return "UserPojo [id_user=" + id_user + ", nick=" + nick + ", first_name=" + first_name + ", last_name="
 				+ last_name + ", b_date=" + b_date + ", country=" + country + ", email=" + email + ", pass=" + pass
-				+ ", cartera=" + cartera + "]";
+				+ ", capital=" + capital + ", cartera=" + cartera + "]";
 	}
+
+	
+
+	
 
 }

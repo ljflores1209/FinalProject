@@ -15,6 +15,7 @@ function profileValidate() {
 	var inputLastName = document.forms["prof"]["inputLastName"];
 	var inputDate = document.forms["prof"]["inputDate"];
 	var inputCountry = document.forms["prof"]["inputCountry"];
+	var inputCapital = document.forms["prof"]["inputCapital"];
 
     
 	if(inputEmail.value == "") {
@@ -80,6 +81,12 @@ function profileValidate() {
    if(inputCountry.value == ""){
     inputCountry.classList.add("is-invalid");
     document.getElementById("errorCountry").textContent = "Campo obligatorio";
+    acumErrores ++;
+   }
+   
+   if(inputCapital.value == ""){
+    inputCapital.classList.add("is-invalid");
+    document.getElementById("errorCapital").textContent = "Campo obligatorio";
     acumErrores ++;
    }
 

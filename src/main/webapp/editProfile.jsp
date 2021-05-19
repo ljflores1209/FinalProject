@@ -169,6 +169,18 @@
 					</div>
 
 				</div>
+				
+				<div class="form-row form-group">
+					<div class="col-sm-4 text-center label-column">
+						<label class="col-form-label" for="name-input-field">Capital</label>
+					</div>
+					<div class="col-sm-6 input-column">
+						<input id="inputCapital" class="form-control" name="capital" type="text" value="${capital}">
+					<div class="invalid-feedback" id="errorCapital"></div>
+
+					</div>
+
+				</div>
 
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" id="formCheck-1"><label

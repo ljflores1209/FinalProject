@@ -39,7 +39,7 @@ public class UserDAO {
 			if (rs.next()) {
 				res = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
 						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
-						rs.getString("pass"));
+						rs.getString("pass"), rs.getDouble("capital"));
 				res.setCartera(cartera.getWalletUser(rs.getInt("id_user")));
 			}
 		} catch (Exception ex) {
@@ -62,7 +62,7 @@ public class UserDAO {
 			while (rs.next()) {
 				UserPojo user = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
 						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
-						rs.getString("pass"));
+						rs.getString("pass"),rs.getDouble("capital"));
 				userList.add(user);
 			}
 			return userList;
@@ -74,7 +74,7 @@ public class UserDAO {
 
 	public int addUser(UserPojo user) {
 		try {
-			String sql = "insert into user (nick,first_name,last_name,b_date,country,email,pass) values (?,?,?,?,?,?,?)";
+			String sql = "insert into user (nick,first_name,last_name,b_date,country,email,pass,capital) values (?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, user.getNick());
@@ -84,7 +84,7 @@ public class UserDAO {
 			stmt.setString(5, user.getCountry());
 			stmt.setString(6, user.getEmail());
 			stmt.setString(7, user.getPass());
-
+			stmt.setDouble(8, user.getCapital());
 			int res = stmt.executeUpdate();
 			return res;
 		} catch (Exception ex) {
@@ -127,7 +127,7 @@ public class UserDAO {
 
 	public int updateUser(UserPojo user, int id) {
 		try {
-			String sql = "update user set nick=?, first_name=?, last_name=?,b_date=?, country=?,email=?, pass=? where id_user=?";
+			String sql = "update user set nick=?, first_name=?, last_name=?,b_date=?, country=?,email=?, pass=?, capital=? where id_user=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, user.getNick());
@@ -137,7 +137,8 @@ public class UserDAO {
 			stmt.setString(5, user.getCountry());
 			stmt.setString(6, user.getEmail());
 			stmt.setString(7, user.getPass());
-			stmt.setInt(8, id);
+			stmt.setDouble(8, user.getCapital());
+			stmt.setInt(9, id);
 
 			int res = stmt.executeUpdate();
 			return res;
@@ -273,14 +274,14 @@ public class UserDAO {
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setInt(1, id);
-			stmt.setInt(1, id);
+			stmt.setInt(1, id);//revisar//
 			stmt.setInt(1, id);
 
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				user = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
 						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
-						rs.getString("pass"));
+						rs.getString("pass"),rs.getDouble("capital"));
 				return user;
 			} else {
 				return null;
