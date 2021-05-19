@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/index.js"></script>
 </head>
 
 <body style="opacity: 1;filter: blur(0px);">
@@ -38,7 +37,7 @@
 	           		<a class="login" href="login.jsp">Iniciar sesion</a>
 	           		<a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a>
           	<%} else{ %>
-            		<a class="btn btn-light action-button" href="./controller?accion=cerrarSesion" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Cerrar sesión</a>
+            		<a class="btn btn-light action-button" href="./controller?accion=cerrarSesion" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Cerrar sesiï¿½n</a>
             <%} %>
 	           		<a class="login" href="#" style="margin-left: 15px;">EUR</a>
            		</span>
@@ -52,14 +51,17 @@
                 <div class="col-md-8" style="margin-top: 25px;">
                     <div class="intro">
                         <h2 style="color: var(--light);">EL EXCHANGE DE CONFIANZA </h2>
-                        <p style="color: var(--light);">En CriCoin te damos el cambio más justo. Somos lideres del sector. &nbsp;</p>
+                        <p style="color: var(--light);">En CriCoin te damos el cambio mï¿½s justo. Somos lideres del sector. &nbsp;</p>
                         
                         <%if(session.getAttribute("user")==""  || session.getAttribute("user")==null){ %>
                         
-                        <form action="./controller?accion=insertarEmail" method="post"  >
-	                        <input type="email" name ="email" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">
-	                        <button type="submit" class="btn btn-primary" role="button"  style="background:  #ffdf08;border-radius: 15px; color: var(--gray-dark);">Registrarse</button>
-	                     	<h6><c:out value="${mensaje}" /></h6>               
+                        <form action="./controller?accion=insertarEmail" method="POST" id="idForm" onsubmit="return validateIndexEmail()" name="myForm">
+                            <div class="form-group">
+	                        <input type="text" name ="email" id="inputEmail" style="border-radius: 5px;margin-right: 13px;margin-bottom: 10px;">
+	                        <button id="submit" type="submit" class="btn btn-primary" role="button"  style="background:  #ffdf08;border-radius: 15px; color: var(--gray-dark);">Registrarse</button>
+                            <div class="invalid-feedback text-white" id="errorEmail"></div>
+                            <h6><c:out value="${mensaje}" /></h6>  
+                        </div>             
                         </form>
                         
                         <%}else{ %>
@@ -166,7 +168,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>

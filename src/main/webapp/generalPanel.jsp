@@ -105,12 +105,10 @@ if (session.getAttribute("user") != "") {
 					
 					<div class="form-control">
 
-						<c:set var="cont" scope="session" value="${0}" />
+						<c:set var="cont"  value="${0}" />
 						<c:forEach var="wallet" items="${wallet}">
 							<tr>
-
 								<c:set var="cont" value="${cont + wallet.getTotal()}" />
-
 							</tr>
 						</c:forEach>
 						<c:out value="${cont} $" />
@@ -146,7 +144,7 @@ if (session.getAttribute("user") != "") {
 					<tr>
 						<th>Moneda</th>
 						<th>Total</th>
-						<th>Estimado</th>
+						<th>Estimado en $</th>
 						<th>Acción</th>
 					</tr>
 				</thead>
@@ -155,7 +153,7 @@ if (session.getAttribute("user") != "") {
 					<c:forEach var="wallet" items="${wallet}">
 						<tr>
 							<td><c:out value="${wallet.name}" /></td>
-							<td><c:out value="${wallet.symbol}" /></td>
+							<td><c:out value="${wallet.quantity}" /></td>
 							<td><c:out value="${wallet.getTotal()}" /></td>
 							<td><button class="btn btn-primary" type="button"
 									style="background: #ffdf08; border-radius: 5px; color: rgb(0, 0, 0);">Comprar</button>
