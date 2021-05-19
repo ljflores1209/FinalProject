@@ -51,8 +51,7 @@ public class UserController extends HttpServlet {
 			String pass1 = request.getParameter("pass1");
 			String email = (request.getParameter("email"));
 	
-			if (pass.equals("") || pass == null || pass1.equals("") || pass1 == null || email.equals("")
-					|| email == null) {
+			if (pass.equals("") || pass == null || pass1.equals("") || pass1 == null || email.equals("") || email == null) {
 				request.setAttribute("mensaje", "Debes rellenar todos los campos");
 				request.setAttribute("email", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");

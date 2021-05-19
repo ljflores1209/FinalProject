@@ -84,7 +84,7 @@ public class UserDAO {
 			stmt.setString(5, user.getCountry());
 			stmt.setString(6, user.getEmail());
 			stmt.setString(7, user.getPass());
-			stmt.setDouble(8, user.getCapital());
+			stmt.setDouble(8, 3000.0);
 			int res = stmt.executeUpdate();
 			return res;
 		} catch (Exception ex) {
@@ -127,7 +127,7 @@ public class UserDAO {
 
 	public int updateUser(UserPojo user, int id) {
 		try {
-			String sql = "update user set nick=?, first_name=?, last_name=?,b_date=?, country=?,email=?, pass=?, capital=? where id_user=?";
+			String sql = "update user set nick=?, first_name=?, last_name=?,b_date=?, country=?,email=?, pass=? where id_user=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, user.getNick());
@@ -137,8 +137,8 @@ public class UserDAO {
 			stmt.setString(5, user.getCountry());
 			stmt.setString(6, user.getEmail());
 			stmt.setString(7, user.getPass());
-			stmt.setDouble(8, user.getCapital());
-			stmt.setInt(9, id);
+			
+			stmt.setInt(8, id);
 
 			int res = stmt.executeUpdate();
 			return res;
@@ -165,31 +165,6 @@ public class UserDAO {
 		}
 
 	}
-	
-//	public List<UserPojo> getUsersByPassword(String pass) {
-//		try {
-//			String sql = "select * from user where pass = ? ";
-//			PreparedStatement stmt = con.prepareStatement(sql);
-//
-//			stmt.setString(1, pass);
-//
-//			ResultSet rs = stmt.executeQuery();
-//			
-//			List<UserPojo> userList = new ArrayList<UserPojo>();
-//
-//			while (rs.next()) {
-//				UserPojo user = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
-//						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
-//						rs.getString("pass"));
-//
-//				userList.add(user);
-//			}
-//			return userList;
-//		} catch (Exception ex) {
-//			System.out.println(ex);
-//			return null;
-//		}
-//	}
 	
 	public int getUserIdByEmail(String email) {
 		try {
@@ -221,9 +196,7 @@ public class UserDAO {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                //System.out.println("aqui estoy");
-
-                return rs.getString("pass");
+            	return rs.getString("pass");
             }
         } catch (Exception ex) {
             System.out.println(ex);
@@ -232,41 +205,9 @@ public class UserDAO {
         return "";
     }
 	
-//	public int getUserIdByPass(String pass) {
-//		try {
-//			String sql = "select id_user from user where pass = ? ";
-//			PreparedStatement stmt = con.prepareStatement(sql);
-//
-//			stmt.setString(1, pass);
-//
-//			ResultSet rs = stmt.executeQuery();
-//
-//			if (rs.next()) {
-//				System.out.println(rs.getInt("id_user"));
-//				return rs.getInt("id_user");
-//			}
-//		} catch (Exception ex) {
-//			System.out.println(ex);
-//			return 0;
-//		}
-//		return -1;
-//	}
-//
-//	public boolean comprobarLogin(String email, String pass) {	
-//		if(getUserIdByPass(pass)==getUserIdByEmail(email)) {
-//			System.out.println(getUserIdByPass(pass));
-//			System.out.println("hola");
-//			System.out.println(getUserIdByEmail(email));		
-//			return true;
-//		}else {
-//			System.out.println("adios");
-//			return false;
-//		}
-//	}
-
-
 
 //--------------------------inicio sesion -----------------------------------------------
+	
 	public UserPojo getLogin(int id) {
 		UserPojo user;
 		try {

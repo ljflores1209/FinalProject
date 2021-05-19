@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%if(session.getAttribute("user")!=""){ %>
+<%if(session.getAttribute("user")!="" || session.getAttribute("user")!= null){ %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -175,7 +175,7 @@
 						<label class="col-form-label" for="name-input-field">Capital</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputCapital" class="form-control" name="capital" type="text" value="${capital}">
+						<input id="inputCapital" class="form-control" readonly name="capital" type="text" value="${3000}">
 					<div class="invalid-feedback" id="errorCapital"></div>
 
 					</div>

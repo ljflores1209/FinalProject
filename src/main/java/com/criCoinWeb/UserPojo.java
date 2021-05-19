@@ -31,7 +31,7 @@ public class UserPojo {
 		this.b_date = b_date;
 		this.country = country;
 		this.cartera = new ArrayList<WalletPojo>();
-		this.capital = 0.00;
+		this.capital = capital;
 	}
 
 	public int getId_user() {

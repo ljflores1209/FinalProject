@@ -107,13 +107,13 @@ if (session.getAttribute("user") != "") {
 					<label>Valor estimado:&nbsp;</label>
 					
 					<div class="form-control">
-						<c:set var="cont"  value="${0}" />
+						<c:set var="cont"  value="${user.capital}" />
 						<c:forEach var="wallet" items="${wallet}">
 							<tr>
-								<c:set var="cont" value="${user.capital + cont + wallet.getTotal()}" />
+								<c:set var="cont" value="${user.capital  += wallet.getTotal()}" />
 							</tr>
 						</c:forEach>
-						<c:out value="${cont} $" />
+						<c:out value="${user.capital} $" />
 					</div>
 				</form>
 				<form style="text-align: left;">
