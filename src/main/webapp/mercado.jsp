@@ -55,11 +55,13 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="stylesheet" href="assets/css/Team-Boxed.css">
 <link rel="stylesheet" href="assets/css/mercado.css">
-<link rel="stylesheet" href="assets/css/stylesRic.css">
+
 
 </head>
 
 <body>
+
+<!-------------------------------aqui empieza navbar------------------------------>
 	<nav
 		class="navbar navbar-light navbar-expand-md sticky-top navigation-clean"
 		style="box-shadow: 0px 0px 6px 0px; opacity: 0.90;">
@@ -88,20 +90,28 @@
 			</div>
 		</div>
 	</nav>
-	<h1 style="text-align: center; font-size: 33px; padding: 34px;">MERCADO</h1>
+<!---------------------------------------fin navbar---------------------------------->
+<div class="container-fluid">
+<!-------------------------------mensaje bienvendida------------------------------>
+	<h1 style="text-align: center; font-size: 33px; padding: 34px; font-weight: bolder;">MERCADO</h1>
 	<%
 	if (session.getAttribute("user") != "") {
 	%>
 	<h2 class="mercado-bienvenido">
-		Bienvenido
+		Bienvenido 
 		<c:out value="${user.nick}" />
 	</h2>
 	<%
 	}
 	%>
-	<div class="mercado-container">
-		<div
-			style="height: 560px; background-color: #FFFFFF; overflow: hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height: 14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; padding: 1px; padding: 0px; margin: 0px; width: 100%;">
+<!--------///////////////////////////////fin mensaje bienvendida//////////////////////////////////---------->	
+
+<!-----------------------------------------------------------bloque mercado-------------------------------------------------------------->	
+	
+<!--------------------------------------------iframe grafica --------------------------------- -->
+		<div class="row">
+		<div class="col-md-9"> <!-- extra1 -->
+		<div style="height: 560px; background-color: #FFFFFF; overflow: hidden; box-sizing: border-box; border: 0px solid #56667F; border-radius: 4px; text-align: right; line-height: 14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%;  padding: 1px; padding: 0px; margin: 0px; width: 100%;">
 			<div style="height: 540px; padding: 0px; margin: 0px; width: 100%;">
 				<iframe
 					src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505"
@@ -109,15 +119,19 @@
 					marginheight="0" frameborder="0" border="0"
 					style="border: 0; margin: 0; padding: 0; line-height: 14px;"></iframe>
 			</div>
-			<div
-				style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+			<!--  <div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
 				<a href="https://coinlib.io" target="_blank"
 					style="font-weight: 500; color: #FFFFFF; text-decoration: none; font-size: 11px">Cryptocurrency
 					Prices</a>&nbsp;by Coinlib
-			</div>
+			</div>-->
 		</div>
-		<div class="mercado-suite">
-			<!-- mio -->
+		</div><!-- extra1 -->
+<!-- /////////////////fin iframe grafica//////////////////////////// -->
+
+<!---------------------------inicio compra/venta -------------------------- -->
+		<div class="col-md-3"><!-- extra2 -->
+		<div class="mercbox pb-3" style="background-color: #FFDF08">
+			<!-- ricardo -->
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs justify-content-center nav-fill"  >
 				<li class="nav-item" ><a class="nav-link active" 
@@ -129,14 +143,14 @@
 
 			<!-- Tab panes -->
 			<div class="tab-content" >
-			<!-- Compra -->
+			<!-- aqui empieza compraCompra -->
 				<div class="tab-pane container active" id="compra" >
 				<div class="mt-5" >
 					<div class="input-group mb-3">
   					<div class="input-group-prepend">
     				<label class="input-group-text" for="inputGroupSelect01">PAR</label>
   					</div>
-  				
+  			
   					<select class="custom-select" id="inputGroupSelect01">
     				<option selected>Elige la moneda...</option>
     				<option value="btc">BTC</option>
@@ -161,10 +175,10 @@
 					</div>
 					</form>
 					
-					<div><p>BTC</div>
+					<div><p>BTC</p></div><!-- aqui va el valor de la moneda que compraremos -->
 					
 					<form
-					style="margin-bottom: 10px; text-align: left; margin-top: 12px;">
+					style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 					<label>Valor de compra:&nbsp;</label>
 					
 					<div class="form-control">
@@ -176,19 +190,81 @@
 						</c:forEach>
 						<c:out value="${cont} $" />
 					</div>
+					
+					
+					<div><p>USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
+					</form>
+				</div>
+				</div>
+			<!---------- fin compra ------------>
+			
+				<div class="tab-pane container fade" id="venta"><!-- aqui empieza contenido venta -->
+
+				<div class="mt-5" >
+					<div class="input-group mb-3">
+  						<div class="input-group-prepend">
+    						<label class="input-group-text" for="inputGroupSelect01">PAR</label>
+  						</div>
+  			
+  						<select class="custom-select" id="inputGroupSelect01">
+    						<option selected>Elige tu moneda...</option><!-- elegimos una de nuestras monedas que queremos vender -->
+    						<option value="btc">BTC</option><!-- recuperadas de la base de datos -->
+   							<option value="eth">ETH</option>
+    						<option value="bnb">BNB</option>
+ 						</select>
+ 				
+					</div>
+					
+					<form style="margin-bottom: 10px; text-align: left; margin-top: 30px;">
+						<label>Cantidad de venta:&nbsp;</label>
+					
+						<div class="form-control">
+							<c:set var="cont" scope="session" value="${0}" />
+							<c:forEach var="wallet" items="${wallet}">
+								<tr>
+									<c:set var="cont" value="${cont + wallet.getTotal()}" />
+								</tr>
+							</c:forEach>
+							<c:out value="${cont} $" />
+						</div>
 					</form>
 					
-					<div><p>USD</div>
-					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
+					<div><p>BTC</p></div><!-- aqui va el valor de la moneda que vendemos -->
+					
+					<form style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
+						<label>Valor de venta:&nbsp;</label>
+					
+						<div class="form-control">
+							<c:set var="cont" scope="session" value="${0}" />
+							<c:forEach var="wallet" items="${wallet}">
+								<tr>
+									<c:set var="cont" value="${cont + wallet.getTotal()}" />
+								</tr>
+							</c:forEach>
+							<c:out value="${cont} $" />
+						</div>
+					
+					
+					<div><p>USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					
+					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Vender</button></div>
+					</form>
 				</div>
+
 				</div>
-			<!-- fin compra -->
-				<div class="tab-pane container fade" id="venta">...</div>
 
 			</div>
-			<!-- fin mio-->
+			<!-- fin ricardo-->
+			
 		</div>
-		<div>
+		</div><!-- extra2 -->
+		</div>
+<!-- ////////////////////////////fin compra/venta/////////////////////////////////// -->
+
+<!--------------------------------precios mercado ---------------------------- -->
+		<div class="row">
+		<div class="col-md-10">
 			<div class="mercado-coin-list"
 				style="height: 433px; background-color: #FFFFFF; overflow: hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height: 14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; padding: 0px; margin: 0px; width: 100%;">
 				<div style="height: 413px; padding: 0px; margin: 0px; width: 100%;">
@@ -198,34 +274,61 @@
 						marginheight="0" frameborder="0" border="0"
 						style="border: 0; margin: 0; padding: 0;"></iframe>
 				</div>
-				<div
+				<!--  <div
 					style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
 					<a href="https://coinlib.io" target="_blank"
 						style="font-weight: 500; color: #FFFFFF; text-decoration: none; font-size: 11px">Cryptocurrency
 						Prices</a>&nbsp;by Coinlib
-				</div>
+				</div>-->
 			</div>
-			<div class="mercado-coin-conversor mt-5"
+		</div>
+<!---------///////////////////////////fin precios mercado //////////////////////////////-------- -->
+
+<!-------------------------------------cambio ----------------------------- -->
+			<div class="col-md-2">
+			<div class="mercado-coin-conversor "
+				style=" height: 433px; background-color: #FFFFFF; overflow: hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height: 14px;  font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; margin: 0; width: 100%; padding: 1px; padding: 0px; margin: 0px;">
+				<div><h4 class="text-center font-weight-bold  mt-1">Cambios</h4></div>
+				<div style="height: 413px; padding: 0px; margin: 0px; width: 100%;">
+					<iframe
+						src="https://widget.coinlib.io/widget?type=converter&theme=light"
+						width="100%" height="310px" scrolling="auto" marginwidth="0"
+						marginheight="0" frameborder="0" border="0"
+						style="border: 0; margin: 0; padding: 0;"></iframe>
+				</div>
+				<!--<div
+					style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+					<a href="https://coinlib.io" target="_blank"
+						style="font-weight: 500; color: #FFFFFF; text-decoration: none; font-size: 11px">Cryptocurrency
+						Prices</a>&nbsp;by Coinlib
+				</div>-->
+			</div>
+			
+			<!--  <div class="mercado-coin-conversor mt-5"
 				style="width: 250px; height: 335px; background-color: #FAFAFA; overflow: hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height: 14px; block-size: 335px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; margin: 0; width: 250px; padding: 1px; padding: 0px; margin: 0px;">
 				<div style="height: 315px; padding: 0px; margin: 0px; width: 100%;">
 					<iframe
 						src="https://widget.coinlib.io/widget?type=converter&theme=light"
-						width="250" height="310px" scrolling="auto" marginwidth="0"
+						width="250px" height="310px" scrolling="auto" marginwidth="0"
 						marginheight="0" frameborder="0" border="0"
 						style="border: 0; margin: 0; padding: 0;"></iframe>
-				</div>
-				<div
+				</div>-->
+				<!--<div
 					style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
 					<a href="https://coinlib.io" target="_blank"
 						style="font-weight: 500; color: #FFFFFF; text-decoration: none; font-size: 11px">Cryptocurrency
 						Prices</a>&nbsp;by Coinlib
-				</div>
+				</div>-->
 			</div>
+			
+			</div>
+<!-- //////////////////////////////////fin cambio/////////////////////////// -->
 		</div>
+	
+<!----------------------------------------------------------------------fin bloque mercado------------------------------------------------------------>
 	</div>
-
 	<div class="mt-5"
-		style="height: 62px; background-color: #FFFFFF; overflow: hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height: 14px; block-size: 62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; padding: 1px; padding: 0px; margin: 0px; width: 100%;">
+		style="height: 52px; background-color: #FFFFFF; overflow: hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 0px; text-align: right; line-height: 14px; block-size: 48px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%;  padding: 1px; padding: 0px; margin: 0px; width: 100%;">
 		<div style="height: 40px; padding: 0px; margin: 0px; width: 100%;">
 			<iframe
 				src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=light&pref_coin_id=1505&invert_hover="
@@ -233,12 +336,12 @@
 				marginheight="0" frameborder="0" border="0"
 				style="border: 0; margin: 0; padding: 0;"></iframe>
 		</div>
-		<div
+		<!--  <div
 			style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
 			<a href="https://coinlib.io" target="_blank"
 				style="font-weight: 500; color: #FFFFFF; text-decoration: none; font-size: 11px">Cryptocurrency
 				Prices</a>&nbsp;by Coinlib
-		</div>
+		</div>-->
 	</div>
 	<footer class="footer-dark" style="background: #2a076e;">
 		<div class="container">
@@ -282,6 +385,7 @@
 			</p>
 		</div>
 	</footer>
+	
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/bs-init.js"></script>
