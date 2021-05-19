@@ -6,7 +6,7 @@ if (session.getAttribute("user") != "") {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./controller?accion=recuperarDatosCartera");
 		dispatcher.forward(request, response);
 	} else if (request.getAttribute("datosRecuperados") == "ok") {
-		System.out.println("Ahora sí, entramos a generalPanel logueado y con los datos recuperados");
+		System.out.println("Ahora sï¿½, entramos a generalPanel logueado y con los datos recuperados");
 	}
 %>
 
@@ -85,9 +85,12 @@ if (session.getAttribute("user") != "") {
 					<li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
 					<li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
 					<li class="nav-item"><a class="nav-link" href="about.jsp">About</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="generalPanel.jsp">Perfil&nbsp;<i class="fa fa-user"
-							style="color: #2a076e;"></i></a></li>
+					<li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="editProfile.jsp">Perfil&nbsp;
+							<i class="fa fa-user" style="color: #2a076e;"></i>
+						</a>
+					</li>
 					<li class="nav-item"><a class="nav-link" href="#"><i
 							class="fa fa-bell" style="color: #2a076e;"></i></a></li>
 					<li class="nav-item"><a class="nav-link" href="#">EUR</a></li>
@@ -104,11 +107,10 @@ if (session.getAttribute("user") != "") {
 					<label>Valor estimado:&nbsp;</label>
 					
 					<div class="form-control">
-
 						<c:set var="cont"  value="${0}" />
 						<c:forEach var="wallet" items="${wallet}">
 							<tr>
-								<c:set var="cont" value="${cont + wallet.getTotal()}" />
+								<c:set var="cont" value="${user.capital + cont + wallet.getTotal()}" />
 							</tr>
 						</c:forEach>
 						<c:out value="${cont} $" />
@@ -145,7 +147,7 @@ if (session.getAttribute("user") != "") {
 						<th>Moneda</th>
 						<th>Total</th>
 						<th>Estimado en $</th>
-						<th>Acción</th>
+						<th>Acciï¿½n</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -167,7 +169,7 @@ if (session.getAttribute("user") != "") {
 			</table>
 		</div>
 	</div>
-	<h1 style="font-size: 33px; padding: 28px; margin-top: 43px;">Histórico
+	<h1 style="font-size: 33px; padding: 28px; margin-top: 43px;">Histï¿½rico
 		de transacciones</h1>
 	<div class="container"
 		style="margin-bottom: 53px; box-shadow: 0px 0px 6px;">

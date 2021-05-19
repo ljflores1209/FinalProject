@@ -33,6 +33,7 @@
 				<a class="login" href="About.jsp">About&nbsp;</a>
 				<a class="login" href="ranking.jsp">Ranking&nbsp;</a>
 				
+				
             <%if(session.getAttribute("user")=="" || session.getAttribute("user")==null){ %>
 	           		<a class="login" href="login.jsp">Iniciar sesion</a>
 	           		<a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a>
@@ -67,7 +68,7 @@
                         <%}else{ %>
                         	<h3 class="main-bienvenido-h3">Bienvenido <span><c:out value="${user.nick}"/></span></h3>
                         	<span class="navbar-text actions">
-            					<a class="btn btn-light action-button" href="./controller?accion=generalPanel" role="button" data-bss-hover-animate="pulse"  style="background: #ffdf08;color: rgb(0,0,0);">Perfil</a>
+            					<a class="btn btn-light action-button" href="editProfile.jsp" role="button" data-bss-hover-animate="pulse"  style="background: #ffdf08;color: rgb(0,0,0);">Perfil</a>
            					</span>
                         <%} %>
                     </div>

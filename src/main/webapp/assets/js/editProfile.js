@@ -74,11 +74,8 @@ function profileValidate() {
     inputDate.classList.add("is-invalid");
     document.getElementById("errorDate").textContent = "Campo obligatorio";
     acumErrores ++;
-   }else if(!validarDate(inputDate.value)){
-    inputDate.classList.add("is-invalid");
-    document.getElementById("errorDate").textContent = "No cumple el formato";
-    acumErrores ++;
-}
+   }
+
    
    if(inputCountry.value == ""){
     inputCountry.classList.add("is-invalid");

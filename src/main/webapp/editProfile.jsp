@@ -94,7 +94,7 @@
 						</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputEmail" class="form-control" name="email" type="text" readonly value="${email}" >
+						<input id="inputEmail" class="form-control" name="email" type="text" readonly value="${user.email}" >
 					<div class="invalid-feedback" id="errorEmail"></div>
 
 					</div>
@@ -102,10 +102,10 @@
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
-						<label class="col-form-label" for="pawssword-input-field">Contraseï¿½a</label>
+						<label class="col-form-label" for="pawssword-input-field">Contraseña</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputPassword" class="form-control" name="pass" type="password" value="${pass}">
+						<input id="inputPassword" class="form-control" name="pass" type="password" value="${user.pass}">
 					<div class="invalid-feedback" id="errorPassword"></div>
 
 					</div>
@@ -116,7 +116,7 @@
 						<label class="col-form-label" for="name-input-field">Nick</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputNick" class="form-control" name="nick" type="text">
+						<input id="inputNick" class="form-control" name="nick" type="text" value="${user.nick}">
 					<div class="invalid-feedback" id="errorNick"></div>
 
 					</div>
@@ -127,7 +127,7 @@
 						<label class="col-form-label" for="name-input-field">Nombre</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputName" class="form-control" name="first_name" type="text">
+						<input id="inputName" class="form-control" name="first_name" type="text" value="${user.first_name}">
 					<div class="invalid-feedback" id="errorName"></div>
 
 					</div>
@@ -138,7 +138,7 @@
 						<label class="col-form-label" for="name-input-field">Apellidos</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputLastName" class="form-control" name="last_name" type="text">
+						<input id="inputLastName" class="form-control" name="last_name" value="${user.last_name}">
 					<div class="invalid-feedback" id="errorLastName"></div>
 
 					</div>
@@ -150,7 +150,7 @@
 							nacimiento</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputDate" class="form-control" name="b_date" type="text" placeholder="DD/MM/YYYY">
+						<input id="inputDate" class="form-control" name="b_date" type="text" placeholder="DD/MM/YYYY" value="${user.b_date}">
 					<div class="invalid-feedback" id="errorDate"></div>
 
 					</div>
@@ -163,7 +163,7 @@
 							de residencia</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputCountry" class="form-control" name="country" type="text">
+						<input id="inputCountry" class="form-control" name="country" type="text" value="${user.country}">
 					<div class="invalid-feedback" id="errorCountry"></div>
 
 					</div>

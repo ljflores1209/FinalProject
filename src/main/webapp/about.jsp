@@ -52,7 +52,12 @@
                     <li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
                     <li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Perfil&nbsp;<i class="fa fa-user" style="color: #2a076e;"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="editProfile.jsp">Perfil&nbsp;
+							<i class="fa fa-user" style="color: #2a076e;"></i>
+						</a>
+					</li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-bell" style="color: #2a076e;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="#">EUR</a></li>
                 </ul>
@@ -126,7 +131,7 @@
                 </div>
                 <div class="col item social"><a href="#" style="color: #ffdf08;"><i class="icon ion-social-facebook"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-twitter"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-snapchat"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin Â© 2021</p>
+            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin © 2021</p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>

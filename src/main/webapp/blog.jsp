@@ -52,7 +52,12 @@
                     <li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
                     <li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Perfil&nbsp;<i class="fa fa-user" style="color: #2a076e;"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="editProfile.jsp">Perfil&nbsp;
+							<i class="fa fa-user" style="color: #2a076e;"></i>
+						</a>
+					</li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-bell" style="color: #2a076e;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="#">EUR</a></li>
                 </ul>

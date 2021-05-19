@@ -52,7 +52,12 @@
                     <li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.jsp">About</a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Perfil&nbsp;<i class="fa fa-user" style="color: #2a076e;"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="editProfile.jsp">Perfil&nbsp;
+							<i class="fa fa-user" style="color: #2a076e;"></i>
+						</a>
+					</li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-bell" style="color: #2a076e;"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="#">EUR</a></li>
                 </ul>
@@ -70,9 +75,9 @@
                                 <table class="table table-striped table-sm my-0 mydatatable">
                                     <thead>
                                         <tr>
-                                            <th style="width: 200px;">Posición</th>
+                                            <th style="width: 200px;">Posiciï¿½n</th>
                                             <th style="width: 200px;">Nick</th>
-                                            <th style="width: 200px;">Nº Transacciones</th>
+                                            <th style="width: 200px;">Nï¿½ Transacciones</th>
                                             <th style="width: 200px;">Beneficio Semanal</th>
                                         </tr>
                                     </thead>
