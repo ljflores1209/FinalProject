@@ -1,10 +1,7 @@
-let selector = document.getElementById("inputGroupSelect01");
+$('select').on('change', function () {
+    $('#grafico').attr('src', this.value)
+});
 
-function cambioGrafica() {
-    $('#grafico').attr('src', 'https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=145&pref_coin_id=1505')
-}
-
-selector.addEventListener('change', cambioGrafica);
 
 
 // BTC 859

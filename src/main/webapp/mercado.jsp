@@ -145,13 +145,13 @@
     				<label class="input-group-text" for="inputGroupSelect01">PAR</label>
   					</div>
   			
-  					<select class="custom-select"  id="inputGroupSelect01">
+  					<select class="custom-select" id="inputGroupSelect01">
 	    				<option selected>Elige la moneda...</option>
-	    				<option value="btc">BTC</option>
-	   					<option value="eth">ETH</option>
-	    				<option value="bnb">BNB</option>
-	    				<option value="ada">ADA</option>
-	    				<option value="doge">DOGE</option>
+	    				<option id="selectBtc" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505">BTC</option>
+	   					<option id="selectEth" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=145&pref_coin_id=1505">ETH</option>
+	    				<option id="selectBnb" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=1209&pref_coin_id=1505">BNB</option>
+	    				<option id="selectAda" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=122882&pref_coin_id=1505">ADA</option>
+	    				<option id="selectDoge" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=280&pref_coin_id=1505">DOGE</option>
  					</select>
  				
 					</div>
@@ -190,10 +190,12 @@
   						</div>
   			
   						<select class="custom-select" id="inputGroupSelect02">
-    						<option selected>Elige tu moneda...</option><!-- elegimos una de nuestras monedas que queremos vender -->
-    						<option value="btc">BTC</option><!-- recuperadas de la base de datos -->
-   							<option value="eth">ETH</option>
-    						<option value="bnb">BNB</option>
+    						<option selected>Elige tu moneda...</option>  
+							<option id="selectBtc" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505">BTC</option>
+	   					<option id="selectEth" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=145&pref_coin_id=1505">ETH</option>
+	    				<option id="selectBnb" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=1209&pref_coin_id=1505">BNB</option>
+	    				<option id="selectAda" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=122882&pref_coin_id=1505">ADA</option>
+	    				<option id="selectDoge" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=280&pref_coin_id=1505">DOGE</option>
  						</select>
  				
 					</div>
