@@ -1,5 +1,5 @@
 $('select').on('change', function () {
-    $('#grafico').attr('src', this.value)
+    $('#grafico').attr('src', "https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=" + this.value + "&pref_coin_id=1505")
 });
 
 

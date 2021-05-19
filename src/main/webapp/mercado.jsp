@@ -147,11 +147,11 @@
   			
   					<select class="custom-select" id="inputGroupSelect01">
 	    				<option selected>Elige la moneda...</option>
-	    				<option id="selectBtc" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505">BTC</option>
-	   					<option id="selectEth" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=145&pref_coin_id=1505">ETH</option>
-	    				<option id="selectBnb" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=1209&pref_coin_id=1505">BNB</option>
-	    				<option id="selectAda" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=122882&pref_coin_id=1505">ADA</option>
-	    				<option id="selectDoge" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=280&pref_coin_id=1505">DOGE</option>
+	    				<option id="selectBtc" value="859">BTC</option>
+	   					<option id="selectEth" value="145">ETH</option>
+	    				<option id="selectBnb" value="1209">BNB</option>
+	    				<option id="selectAda" value="122882">ADA</option>
+	    				<option id="selectDoge" value="280">DOGE</option>
  					</select>
  				
 					</div>
@@ -162,8 +162,6 @@
 					
 					<input class="form-control" readonly type="number">
 					</form>
-					
-					<div><p>BTC</p></div><!-- aqu� va el valor de la moneda que compraremos -->
 					
 					<form
 					style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
@@ -191,11 +189,11 @@
   			
   						<select class="custom-select" id="inputGroupSelect02">
     						<option selected>Elige tu moneda...</option>  
-							<option id="selectBtc" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505">BTC</option>
-	   					<option id="selectEth" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=145&pref_coin_id=1505">ETH</option>
-	    				<option id="selectBnb" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=1209&pref_coin_id=1505">BNB</option>
-	    				<option id="selectAda" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=122882&pref_coin_id=1505">ADA</option>
-	    				<option id="selectDoge" value="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=280&pref_coin_id=1505">DOGE</option>
+							<option id="selectBtc" value="859">BTC</option>
+							<option id="selectEth" value="145">ETH</option>
+							<option id="selectBnb" value="1209">BNB</option>
+							<option id="selectAda" value="122882">ADA</option>
+							<option id="selectDoge" value="280">DOGE</option>
  						</select>
  				
 					</div>
@@ -205,9 +203,7 @@
 					
 						<input class="form-control" type="number">
 					</form>
-					
-					<div><p>BTC</p></div><!-- aqui va el valor de la moneda que vendemos -->
-					
+				
 					<form style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 						<label>Valor de venta:&nbsp;</label>
 					
