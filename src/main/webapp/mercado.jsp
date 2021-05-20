@@ -176,7 +176,7 @@
 
 					
 					
-					<div><p>USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					<div><c:out value="${user.fondos} USD" /></div><!-- aqui va la cantidad de dolares que tengo -->
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
 				</div>
@@ -214,7 +214,7 @@
 						<input class="form-control" readonly type="number">
 					
 					
-					<div><p>USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					<div><c:out value="${user.fondos} USD" /></div><!-- aqui va la cantidad de dolares que tengo -->
 					
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Vender</button></div>
 					</form>

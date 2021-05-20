@@ -126,6 +126,7 @@ public class UserController extends HttpServlet {
 			
 		
 		} else if(accion.equals("recuperarDatosCartera")){
+			session = request.getSession(true);
 			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversi�n implicita porque el objeto de sesi�n que se nos pasa es abstracto y aqu� lo definimos como UserPojo.
 			request.setAttribute("datosRecuperados", "ok");
 			
@@ -133,13 +134,31 @@ public class UserController extends HttpServlet {
 			
 			ConexionAPI conexionApi = new ConexionAPI();	
 //			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
-			request.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
-			request.setAttribute("precioBit", conexionApi.bitcoinGetter());
-				
+			session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
+			System.out.println(user.getId_user());
+			session.setAttribute("precioBit", conexionApi.bitcoinGetter());
+				System.out.println(session.getAttribute("wallet"));
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("generalPanel.jsp");
             dispatcher.forward(request, response);			
 		}
+		else if(accion.equals("recuperarDatosCarteraMercado")){
+			session = request.getSession(true);
+			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversi�n implicita porque el objeto de sesi�n que se nos pasa es abstracto y aqu� lo definimos como UserPojo.
+			request.setAttribute("datosRecuperados", "ok");
+			
+			request.setAttribute("user", user);
+			
+			ConexionAPI conexionApi = new ConexionAPI();	
+//			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
+			session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
+			session.setAttribute("precioBit", conexionApi.bitcoinGetter());
+//				System.out.println(session.getAttribute("wallet"));
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+            dispatcher.forward(request, response);			
+		}
+		
 		
 	}
 

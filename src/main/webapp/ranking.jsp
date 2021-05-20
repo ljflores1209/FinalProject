@@ -49,12 +49,12 @@
         <div class="container-fluid"><a class="navbar-brand" href="index.jsp"><img src="assets/img/Main%20logo.png" style="width: 149px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="mercado.jsp">Mercado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./controller?accion=recuperarDatosCarteraMercado">Mercado</a></li>
                     <li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.jsp">About</a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
-					<li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="./controller?accion=recuperarDatosCartera">Cartera</a></li>
+                    <li class="nav-item">
 						<a class="nav-link" href="editProfile.jsp">Perfil&nbsp;
 							<i class="fa fa-user" style="color: #2a076e;"></i>
 						</a>

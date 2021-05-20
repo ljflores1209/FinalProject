@@ -3,12 +3,7 @@
 <%
 if (session.getAttribute("user") != "") {
 
-	if (request.getAttribute("datosRecuperados") != null) {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./controller?accion=recuperarDatosCartera");
-		dispatcher.forward(request, response);
-	} else if (request.getAttribute("datosRecuperados") == "ok") {
-		System.out.println("Ahora s�, entramos a generalPanel logueado y con los datos recuperados");
-	}
+	
 %>
 
 <!DOCTYPE html>
@@ -114,15 +109,17 @@ if (session.getAttribute("user") != "") {
 								<c:set var="cont" value="${cont  + wallet.getTotal()}" />
 							</tr>
 						</c:forEach>
-						<c:out value="${cont} $" /> --%>
-						<c:out value="${user.getFondos()} $" />
+						<c:out value="${cont} $" />  --%>
+						<c:out value="${user.fondos} $" /> 
+						<%-- <c:out value="${precioBit.current_price} $" /> 
+						<c:out value="${wallet} $" />  --%>
 					</div>
 				</form>
 				<form style="text-align: left;">
 					<label>Resumen Balance:&nbsp;</label>
 					<div class="form-control">
-
-						<c:out value="${user.getFondos() / precioBit.current_price} BTC" />
+						
+						<c:out value="${user.fondos / precioBit.current_price } BTC" />
 						
 					</div>
 				</form>
@@ -171,7 +168,7 @@ if (session.getAttribute("user") != "") {
 			</table>
 		</div>
 	</div>
-	<h1 style="font-size: 33px; padding: 28px; margin-top: 43px;">Hist�rico
+	<h1 style="font-size: 33px; padding: 28px; margin-top: 43px;">Histórico
 		de transacciones</h1>
 	<div class="container"
 		style="margin-bottom: 53px; box-shadow: 0px 0px 6px;">

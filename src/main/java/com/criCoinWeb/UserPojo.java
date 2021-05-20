@@ -113,6 +113,8 @@ public class UserPojo {
 	}
 
 	public void setCapital(Double capital) {
+		
+		
 		this.capital = capital;
 	}
  

@@ -176,7 +176,7 @@
 						<label class="col-form-label" for="name-input-field">Capital</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputCapital" class="form-control" readonly name="capital" type="text" value="${user.getFondos}">
+						<input id="inputCapital" class="form-control" readonly name="capital" type="text" value="${user.fondos}">
 					<div class="invalid-feedback" id="errorCapital"></div>
 
 					</div>
