@@ -107,13 +107,26 @@ public class UserPojo {
 	}
 
 	public Double getCapital() {
+		
+		
 		return capital;
 	}
 
 	public void setCapital(Double capital) {
 		this.capital = capital;
 	}
-
+ 
+	public Double getFondos() {
+			ConexionAPI conexionApi = new ConexionAPI();
+			Double cont= 0.0;
+			List<ApiPojo> cartera=conexionApi.infoMonedasUserById(this.getId_user());
+			for(int i = 0; i<cartera.size(); i++) {
+				cont += cartera.get(i).getTotal();
+			}
+			cont += this.getCapital();
+			return(cont);
+	}
+	
 	@Override
 	public String toString() {
 		return "UserPojo [id_user=" + id_user + ", nick=" + nick + ", first_name=" + first_name + ", last_name="

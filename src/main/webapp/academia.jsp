@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="es">
 
 <head>
@@ -111,7 +112,7 @@
                 </div>
                 <div class="col item social"><a href="#" style="color: #ffdf08;"><i class="icon ion-social-facebook"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-twitter"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-snapchat"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin © 2021</p>
+            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin ï¿½ 2021</p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>

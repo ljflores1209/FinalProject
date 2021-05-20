@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%if(session.getAttribute("user")!="" || session.getAttribute("user")!= null){ %>
 <!DOCTYPE html>
 <html lang="es">
@@ -102,7 +103,7 @@
 				</div>
 				<div class="form-row form-group">
 					<div class="col-sm-4 text-center label-column">
-						<label class="col-form-label" for="pawssword-input-field">Contraseña</label>
+						<label class="col-form-label" for="pawssword-input-field">Contraseï¿½a</label>
 					</div>
 					<div class="col-sm-6 input-column">
 						<input id="inputPassword" class="form-control" name="pass" type="password" value="${user.pass}">
@@ -175,7 +176,7 @@
 						<label class="col-form-label" for="name-input-field">Capital</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input id="inputCapital" class="form-control" readonly name="capital" type="text" value="${3000}">
+						<input id="inputCapital" class="form-control" readonly name="capital" type="text" value="${user.getFondos}">
 					<div class="invalid-feedback" id="errorCapital"></div>
 
 					</div>

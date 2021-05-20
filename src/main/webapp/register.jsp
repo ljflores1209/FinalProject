@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%if(session.getAttribute("user")==""  || session.getAttribute("user")==null){ %>
 
@@ -41,7 +42,7 @@
             <div class="form-group"><input id="inputEmail" class="form-control" type="text" name="email" placeholder="Email" value="${email}"  /><div class="invalid-feedback" id="errorEmail"></div></div>
             <div class="form-group"><input id="inputPassword" class="form-control" type="password" name="pass" placeholder="Password"><div class="invalid-feedback" id="errorPassword"></div></div>
             <div class="form-group"><input id="inputConfirmPassword" class="form-control" type="password" name="pass1" placeholder="Confirm Password"><div class="invalid-feedback" id="errorConfirmPassword"></div></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</button></div><a class="forgot" href="login.jsp">�Ya est�s registrado? Iniciar sesi�n</a>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</button></div><a class="forgot" href="login.jsp">�Ya estás registrado? Iniciar sesión</a>
             <div class="text-danger"><h6><c:out value="${mensaje}" /></h6></div>
         </form>
     </section>

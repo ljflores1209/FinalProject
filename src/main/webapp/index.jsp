@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="es">
 
 <head>
@@ -38,7 +39,7 @@
 	           		<a class="login" href="login.jsp">Iniciar sesion</a>
 	           		<a class="btn btn-light action-button" type="submit" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Registrarse</a>
           	<%} else{ %>
-            		<a class="btn btn-light action-button" href="./controller?accion=cerrarSesion" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Cerrar sesi�n</a>
+            		<a class="btn btn-light action-button" href="./controller?accion=cerrarSesion" role="button" data-bss-hover-animate="pulse" href="register.jsp" style="background: #ffdf08;color: rgb(0,0,0);">Cerrar sesión</a>
             <%} %>
 	           		<a class="login" href="#" style="margin-left: 15px;">EUR</a>
            		</span>
@@ -52,7 +53,7 @@
                 <div class="col-md-8" style="margin-top: 25px;">
                     <div class="intro">
                         <h2 style="color: var(--light);">EL EXCHANGE DE CONFIANZA </h2>
-                        <p style="color: var(--light);">En CriCoin te damos el cambio m�s justo. Somos lideres del sector. &nbsp;</p>
+                        <p style="color: var(--light);">En CriCoin te damos el cambio más justo. Somos lideres del sector. &nbsp;</p>
                         
                         <%if(session.getAttribute("user")==""  || session.getAttribute("user")==null){ %>
                         
@@ -124,15 +125,16 @@
             <div class="row articles">
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid shadow" src="assets/img/chart-2779132_640.jpg" style="border-radius: 5px;"></a>
                     <h3 class="name">Aprende a tradear</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                    <p class="description">Con nuestro curso rápido de inversión en Criptodivisas aprenderás a tradear en un tiempo record y con la mayor de las seguridades. Garantizado.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                    
                 </div>
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid shadow" src="assets/img/stock-1863880_640.jpg" style="border-radius: 5px;"></a>
                     <h3 class="name">Aprende BlockChain </h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                    <p class="description">No te saltes este fantástico curso sobre BlockChain, la tecnología que hay detrás de este innovador y lucrativo mercado de Criptodivisas. </p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid shadow" src="assets/img/mathematics-3821034_640.jpg" style="border-radius: 5px;"></a>
-                    <h3 class="name">�C�mo funciona CriCoin?</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
+                    <h3 class="name">¿Cómo funciona CriCoin?</h3>
+                    <p class="description">A pesar de ser uno de los exchange más intuitivos de la red, en este cusillo rápido, te llevaremos de la mano en un completo recorrido de nuestra plataforma.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right" style="color: #ffdf08;"></i></a>
                 </div>
             </div>
         </div>
@@ -162,7 +164,7 @@
                 </div>
                 <div class="col item social"><a href="#" style="color: #ffdf08;"><i class="icon ion-social-facebook"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-twitter"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-snapchat"></i></a><a href="#" style="color: #ffdf08;"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin � 2021</p>
+            <p class="copyright"><i class="fa fa-rocket"></i>&nbsp;CriCoin © 2021</p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>

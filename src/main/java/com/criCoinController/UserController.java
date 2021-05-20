@@ -58,7 +58,7 @@ public class UserController extends HttpServlet {
 				dispatcher.forward(request, response);
 
 			} else if (!pass.equals(pass1)) {
-				request.setAttribute("mensaje", "La contraseña no coincide");
+				request.setAttribute("mensaje", "La contraseï¿½a no coincide");
 				request.setAttribute("email", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 				dispatcher.forward(request, response);
@@ -99,7 +99,7 @@ public class UserController extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 			}else {
-				request.setAttribute("mensaje", "Este correo ya está en uso");
+				request.setAttribute("mensaje", "Este correo ya estï¿½ en uso");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -114,7 +114,7 @@ public class UserController extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
                 dispatcher.forward(request, response);
             }else {
-                request.setAttribute("mensajeLogin", "Usuario o contraseña invalidos");
+                request.setAttribute("mensajeLogin", "Usuario o contraseï¿½a invalidos");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
                 dispatcher.forward(request, response);
             }		
@@ -126,7 +126,7 @@ public class UserController extends HttpServlet {
 			
 		
 		} else if(accion.equals("recuperarDatosCartera")){
-			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversión implicita porque el objeto de sesión que se nos pasa es abstracto y aquí lo definimos como UserPojo.
+			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversiï¿½n implicita porque el objeto de sesiï¿½n que se nos pasa es abstracto y aquï¿½ lo definimos como UserPojo.
 			request.setAttribute("datosRecuperados", "ok");
 			
 			request.setAttribute("user", user);

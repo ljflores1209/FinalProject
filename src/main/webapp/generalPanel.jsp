@@ -1,8 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 if (session.getAttribute("user") != "") {
 
-	if (request.getAttribute("datosRecuperados") == null) {
+	if (request.getAttribute("datosRecuperados") != null) {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./controller?accion=recuperarDatosCartera");
 		dispatcher.forward(request, response);
 	} else if (request.getAttribute("datosRecuperados") == "ok") {
@@ -107,20 +108,21 @@ if (session.getAttribute("user") != "") {
 					<label>Valor estimado:&nbsp;</label>
 					
 					<div class="form-control">
-						<c:set var="cont"  value="${user.capital}" />
+						<%-- <c:set var="cont"  value="${user.capital}" />
 						<c:forEach var="wallet" items="${wallet}">
 							<tr>
-								<c:set var="cont" value="${user.capital  += wallet.getTotal()}" />
+								<c:set var="cont" value="${cont  + wallet.getTotal()}" />
 							</tr>
 						</c:forEach>
-						<c:out value="${user.capital} $" />
+						<c:out value="${cont} $" /> --%>
+						<c:out value="${user.getFondos()} $" />
 					</div>
 				</form>
 				<form style="text-align: left;">
 					<label>Resumen Balance:&nbsp;</label>
 					<div class="form-control">
 
-						<c:out value="${cont / precioBit.current_price} BTC" />
+						<c:out value="${user.getFondos() / precioBit.current_price} BTC" />
 						
 					</div>
 				</form>
@@ -147,7 +149,7 @@ if (session.getAttribute("user") != "") {
 						<th>Moneda</th>
 						<th>Total</th>
 						<th>Estimado en $</th>
-						<th>Acci�n</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<tbody>
