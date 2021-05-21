@@ -45,6 +45,7 @@ public class UserController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String accion = request.getParameter("accion");
+		session = request.getSession(true);
 
 		if (accion.equals("nuevo")) {
 			String pass = request.getParameter("pass");
@@ -68,8 +69,8 @@ public class UserController extends HttpServlet {
 				modeloUser.addUser(usuario);
 				request.setAttribute("email", email);
 				request.setAttribute("pass", pass);
-				request.setAttribute("user", usuario);
-				request.setAttribute("capital", 100.00);
+				usuario.setCapital(3000.00);
+				session.setAttribute("user", usuario);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("editProfile.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -81,7 +82,7 @@ public class UserController extends HttpServlet {
 			String country = request.getParameter("country");
 			String email = request.getParameter("email");
 			String pass = request.getParameter("pass");
-			Double capital = Double.parseDouble(request.getParameter("capital"));
+			double capital = Double.parseDouble(request.getParameter("capital"));
 			
 			//UserPojo user = (UserPojo)session.getAttribute("user");//guardamos la cartera del usuario anterior prueba 1
 			

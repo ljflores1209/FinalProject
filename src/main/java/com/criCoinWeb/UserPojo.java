@@ -12,7 +12,7 @@ public class UserPojo {
 	private String country;
 	private String email;
 	private String pass;
-	private Double capital;
+	private double capital;
 	private List<WalletPojo> cartera;
 	
 
@@ -22,9 +22,15 @@ public class UserPojo {
 		this.pass = pass;
 	}
 	
+	public UserPojo(int id_user, String email, String pass, double capital) {
+		this.id_user = id_user;
+		this.email = email;
+		this.pass = pass;
+		this.capital = capital;
+	}
 
 	public UserPojo(int id_user, String nick, String first_name, String last_name, Date b_date, String country,
-			String email, String pass, Double capital) {
+			String email, String pass, double capital) {
 		this(id_user, email, pass);
 		this.nick = nick;
 		this.first_name = first_name;
@@ -107,21 +113,21 @@ public class UserPojo {
 		this.cartera = cartera;
 	}
 
-	public Double getCapital() {
+	public double getCapital() {
 		
 		
 		return capital;
 	}
 
-	public void setCapital(Double capital) {
+	public void setCapital(double capital) {
 		
 		
 		this.capital = capital;
 	}
  
-	public Double getFondos() {
+	public double getFondos() {
 			ConexionAPI conexionApi = new ConexionAPI();
-			Double cont= 0.0;
+			double cont= 0.0;
 			List<ApiPojo> cartera=conexionApi.infoMonedasUserById(this.getId_user());
 			for(int i = 0; i<cartera.size(); i++) {
 				cont += cartera.get(i).getTotal();
