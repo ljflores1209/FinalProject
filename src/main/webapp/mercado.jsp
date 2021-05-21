@@ -150,13 +150,13 @@
   					</div>
   			
   					<select class="custom-select" id="inputGroupSelect01">
-	    				<option selected>Elige la moneda...</option>
-	    				<option id="selectBtc" value="859">BTC</option>
-	   					<option id="selectEth" value="145">ETH</option>
-	    				<option id="selectBnb" value="1209">BNB</option>
-	    				<option id="selectAda" value="122882">ADA</option>
-	    				<option id="selectDoge" value="280">DOGE</option>
- 					</select>
+    						<option selected>Elige tu moneda...</option>  
+							<option id="bitcoin" value="859">BTC</option>
+							<option id="ethereum" value="145">ETH</option>
+							<option id="binancecoin" value="1209">BNB</option>
+							<option id="cardano" value="122882">ADA</option>
+							<option id="dogecoin" value="280">DOGE</option>
+ 						</select>
  				
 					</div>
 					
@@ -172,11 +172,11 @@
 					<label>Valor de compra:&nbsp;</label>
 					
 
-					<input class="form-control" type="number">
+					<input class="form-control" id="apuesta" type="number" value="0">
 
 					
 					
-					<div><c:out value="${user.fondos} USD" /></div><!-- aqui va la cantidad de dolares que tengo -->
+					<div ><span id="sonante"><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
 				</div>
@@ -193,11 +193,11 @@
   			
   						<select class="custom-select" id="inputGroupSelect02">
     						<option selected>Elige tu moneda...</option>  
-							<option id="selectBtc" value="859">BTC</option>
-							<option id="selectEth" value="145">ETH</option>
-							<option id="selectBnb" value="1209">BNB</option>
-							<option id="selectAda" value="122882">ADA</option>
-							<option id="selectDoge" value="280">DOGE</option>
+							<option id="bitcoin" value="859">BTC</option>
+							<option id="ethereum" value="145">ETH</option>
+							<option id="binancecoin" value="1209">BNB</option>
+							<option id="cardano" value="122882">ADA</option>
+							<option id="dogecoin" value="280">DOGE</option>
  						</select>
  				
 					</div>
