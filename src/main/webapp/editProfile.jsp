@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%if(session.getAttribute("user")!="" || session.getAttribute("user")!= null){ %>
+<%if(session.getAttribute("user")!= null){ %> <!-- si lo quito peta en fondos, sino lo quito me va a inicio -->
 <!DOCTYPE html>
 <html lang="es">
 

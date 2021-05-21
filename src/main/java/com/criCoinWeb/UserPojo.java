@@ -21,6 +21,7 @@ public class UserPojo {
 		this.email = email;
 		this.pass = pass;
 	}
+	
 
 	public UserPojo(int id_user, String nick, String first_name, String last_name, Date b_date, String country,
 			String email, String pass, Double capital) {

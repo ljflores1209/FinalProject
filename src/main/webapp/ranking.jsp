@@ -76,9 +76,9 @@
                                 <table class="table table-striped table-sm my-0 mydatatable">
                                     <thead>
                                         <tr>
-                                            <th style="width: 200px;">Posici�n</th>
+                                            <th style="width: 200px;">Posición</th>
                                             <th style="width: 200px;">Nick</th>
-                                            <th style="width: 200px;">N� Transacciones</th>
+                                            <th style="width: 200px;">Nº Transacciones</th>
                                             <th style="width: 200px;">Beneficio Semanal</th>
                                         </tr>
                                     </thead>

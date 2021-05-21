@@ -83,10 +83,21 @@ public class UserController extends HttpServlet {
 			String pass = request.getParameter("pass");
 			Double capital = Double.parseDouble(request.getParameter("capital"));
 			
-			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass, capital);
+			//UserPojo user = (UserPojo)session.getAttribute("user");//guardamos la cartera del usuario anterior prueba 1
+			
+			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass, capital);//creo un objeto nuevo que carece de cartera
 			modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email));
+			
 			session = request.getSession(true);
-			session.setAttribute("user", usuario);
+			//usuario.setCartera(userTemp.getCartera());//recupero la cartera del usuario anterior ----mio prueba 1
+			//session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));// mio prueba 2 recupera pero no almacena
+			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(email)));//mio prueba 3 recuperos el usuario por el email
+			
+			
+			//session.setAttribute("user", usuario);//(original)con el nuevo objeto usuario machaco el atributo user aterior y esta vez sin cartera cambio al de arriba
+			
+			
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
 			dispatcher.forward(request, response);
 
@@ -114,15 +125,17 @@ public class UserController extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
                 dispatcher.forward(request, response);
             }else {
-                request.setAttribute("mensajeLogin", "Usuario o contrase�a invalidos");
+                request.setAttribute("mensajeLogin", "Usuario o contraseña invalidos");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
                 dispatcher.forward(request, response);
             }		
 		} else if(accion.equals("cerrarSesion")) {
-			session = request.getSession(true);
-            session.setAttribute("user", "");
+			session.invalidate();//manera correcta de cerrar la session destruyendola-Mio
+//			session = request.getSession(true);
+//            session.setAttribute("user", "");
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
+            
 			
 		
 		} else if(accion.equals("recuperarDatosCartera")){
@@ -144,7 +157,7 @@ public class UserController extends HttpServlet {
 		}
 		else if(accion.equals("recuperarDatosCarteraMercado")){
 			session = request.getSession(true);
-			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversi�n implicita porque el objeto de sesi�n que se nos pasa es abstracto y aqu� lo definimos como UserPojo.
+			UserPojo user = (UserPojo) session.getAttribute("user"); // Conversión implicita porque el objeto de sesión que se nos pasa es abstracto y aquí lo definimos como UserPojo.
 			request.setAttribute("datosRecuperados", "ok");
 			
 			request.setAttribute("user", user);
@@ -158,6 +171,7 @@ public class UserController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);			
 		}
+		
 		
 		
 	}

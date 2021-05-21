@@ -81,7 +81,7 @@
 					<li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
 					<li class="nav-item"><a class="nav-link" href="about.jsp">About</a></li>
 					<li class="nav-item"></li>
-					<li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
+					<li class="nav-item"><a class="nav-link" href="./controller?accion=recuperarDatosCartera">Cartera</a></li>
 					<li class="nav-item">
 						<a class="nav-link" href="editProfile.jsp">Perfil&nbsp;
 							<i class="fa fa-user" style="color: #2a076e;"></i>

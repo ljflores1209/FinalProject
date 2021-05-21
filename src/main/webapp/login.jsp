@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	
-<%if(session.getAttribute("user")=="" || session.getAttribute("user")==null){ %>
+<%if((session.getAttribute("user"))==null){ %><!-- la comparacion es null antes y equals -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +44,7 @@
         </div>
             <div class="form-group"><input id="inputPassword" class="form-control" type="password" name="password" placeholder="Password"><div class="invalid-feedback" id="errorPassword"></div>
         </div>
-            <div class="form-group"><button id="submit" class="btn btn-primary btn-block" type="submit" style="background: #ffdf08;color: rgb(0,0,0);">Iniciar Sesi�n</button></div><a class="forgot" href="#">�Has olvidado tu contrase�a?</a>
+            <div class="form-group"><button id="submit" class="btn btn-primary btn-block" type="submit" style="background: #ffdf08;color: rgb(0,0,0);">Iniciar Sesión</button></div><a class="forgot" href="#">¿Has olvidado tu contraseña?</a>
         </form>
     </section>
     <script src="assets/js/jquery.min.js"></script>
