@@ -164,19 +164,20 @@
 					style="margin-bottom: 10px; text-align: left; margin-top: 30px;">
 					<label>Cantidad de compra:&nbsp;</label>
 					
-					<input class="form-control" readonly type="number">
+					<input class="form-control" id="conversion" readonly type="number" value="${coinPrice}">
 					</form>
 					
-					<form
+					<form name="myForm" id="idMyform" onsubmit="return validateValorCompra()"
+					
 					style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 					<label>Valor de compra:&nbsp;</label>
 					
 
-					<input class="form-control" id="apuesta" type="number" value="0">
+					<input class="form-control" id="apuesta" min="0" max="<c:out value="${user.capital}" />" type="number" value="0">
 
 					
 					
-					<div ><span id="sonante"><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					<div ><span id="sonante" min="0" max="<c:out value="${user.capital}" />"><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
 				</div>

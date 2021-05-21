@@ -63,6 +63,27 @@ public class ConexionAPI {
 
 		return bitcoinInfo;
 	}
+	
+//	public double getCoinPrice(String coinName) {
+//
+//		ApiPojo getCoinPrice = new ApiPojo();
+//
+//		try {
+//			String resultado = peticionHttpGet("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coinName+"&order=market_cap_desc&per_page=100&page=1&sparkline=false");// recorro la listade las monedasque tiene elususario en la base de datos y cojo de la posicion i la moneda y en nombre
+//			JSONArray json = new JSONArray(resultado);
+//			System.out.println(json);
+//
+//			JSONObject object = json.getJSONObject(0);
+//			getCoinPrice = new ApiPojo(object.getString("name"), object.getString("symbol"),
+//					object.getInt("current_price"));
+//
+//			// object.getInt("current_price")) * peticionDAOCuantasMonedasdeEstasTengo
+//		} catch (Exception ex) {
+//			System.out.println(ex);
+//		}
+//
+//		return getCoinPrice();
+//	}
 
 	public static String peticionHttpGet(String urlParaVisitar) throws Exception {
 		// Esto es lo que vamos a devolver
@@ -70,10 +91,10 @@ public class ConexionAPI {
 		// Crear un objeto de tipo URL
 		URL url = new URL(urlParaVisitar);
 
-		// Abrir la conexión e indicar que será de tipo GET
+		// Abrir la conexiï¿½n e indicar que serï¿½ de tipo GET
 		HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
 		conexion.setRequestMethod("GET");
-		// Búferes para leer
+		// Bï¿½feres para leer
 		BufferedReader rd = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
 		String linea;
 		// Mientras el BufferedReader se pueda leer, agregar contenido a resultado
