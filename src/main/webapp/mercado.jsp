@@ -149,13 +149,13 @@
     				<label class="input-group-text" for="inputGroupSelect01">PAR</label>
   					</div>
   			
-  					<select class="custom-select" id="inputGroupSelect01">
+  					<select class="custom-select" id="inputGroupSelect01" name='selCoin'>
     						<option selected>Elige tu moneda...</option>  
-							<option id="bitcoin" value="859">BTC</option>
-							<option id="ethereum" value="145">ETH</option>
-							<option id="binancecoin" value="1209">BNB</option>
-							<option id="cardano" value="122882">ADA</option>
-							<option id="dogecoin" value="280">DOGE</option>
+							<option id="859" value="bitcoin" >BTC</option>
+							<option id="145" value="ethereum">ETH</option>
+							<option id="1209" value="binancecoin">BNB</option>
+							<option id="122882" value="cardano">ADA</option>
+							<option id="280" value="dogecoin">DOGE</option>
  						</select>
  				
 					</div>
@@ -164,9 +164,9 @@
 					style="margin-bottom: 10px; text-align: left; margin-top: 30px;">
 					<label>Cantidad de compra:&nbsp;</label>
 					
-					<input class="form-control" id="conversion" readonly type="number" value="${coinPrice}">
+					<input class="form-control" id="conversion" readonly type="number" value="0">
 					</form>
-					
+					<div><span id="cartera"></span></div>
 					<form name="myForm" id="idMyform" onsubmit="return validateValorCompra()"
 					
 					style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
