@@ -175,6 +175,7 @@
 					
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
+					<input  name="id_moneda" id="id_moneda">
 				</div>
 				</div>
 			<!---------- fin compra ------------>

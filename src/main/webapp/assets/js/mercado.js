@@ -1,5 +1,7 @@
 $('select').on('change', function() {
 	 var id = $(this).find('option:selected').attr('id');
+	 
+	 $('#id_moneda').val(id);
 	$('#grafico').attr('src', "https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=" + id + "&pref_coin_id=1505")
 });
 

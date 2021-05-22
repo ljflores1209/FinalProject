@@ -113,6 +113,23 @@ public class WalletDAO {
         }
 	
     } 
-    
+    public int updateWallet(double restaCapital,int wall,int coin, int id) {
+        try {
+            String sql = "update wallet set total_coin=? where id_wallet=? and id_coin=? and id_user=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+ 
+            stmt.setDouble(1, restaCapital);
+            stmt.setInt(2, wall);
+            stmt.setInt(3, coin);
+            stmt.setInt(4, id);
+ 
+            int res = stmt.executeUpdate();
+            return res;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return -1;
+        }
+	
+    } 
 
 }

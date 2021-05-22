@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+
 
 public class UserDAO {
 	private Connection con;
@@ -250,9 +252,37 @@ public class UserDAO {
 			return -1;
 		}
 	}
-	public double getCalcularCompra(double a, double b ) {
+	public double getRestarCapital(double a, double b ) {
 		return a-b;
 	}
 	
+	public double getSumarMonedas(double a, double b ) {
+		return a+b;
+	}
+	
+	public double getSaldoCoins(int id, int coin) {
+		try {
+			String sql = "select total_coin from wallet where id_user=? and id_coin=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
 
+			stmt.setInt(1, id);
+			stmt.setInt(2, coin);
+
+			ResultSet res = stmt.executeQuery();
+			
+            	
+            	System.out.println(res.getClass());
+            	if (res.next()) {
+                	return res.getDouble("total_coin");
+                	
+                }
+            return 0.00f;
+		} catch (Exception ex) {
+
+			System.out.println(ex.getMessage());
+			return 1.00f;
+		}
+		
+	}
+	
 }

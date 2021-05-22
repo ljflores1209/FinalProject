@@ -176,13 +176,13 @@ public class UserController extends HttpServlet {
 		}
 		else if(accion.equals("comprar")) {
 			double apuesta = Double.parseDouble(request.getParameter("apuesta")); // almaceno cada uno de los parametros en un String para su posterior uso
-			String conversion = request.getParameter("conversion");
+			double conversion =Double.parseDouble(request.getParameter("conversion"));
 			UserPojo user = (UserPojo) session.getAttribute("user");
-			double restaCapital = modeloUser.getCalcularCompra(user.getCapital(), apuesta);
-			
+			double restaCapital = modeloUser.getRestarCapital(user.getCapital(), apuesta);
+//			double conversionDB = modeloUser.getSumarMonedas(modeloUser.getSaldoCoins(user.getId_user(), ), conversion);
 			modeloUser.updateCapital(user.getId_user(),restaCapital);
 			System.out.println(request.getParameter("apuesta"));
-//			modeloWallet.updateWallet(null, 0)
+//			
 			
 		}
 		
