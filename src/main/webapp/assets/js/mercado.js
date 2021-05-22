@@ -25,6 +25,7 @@ let moneda = this.value;
       const cantidad = parseFloat(document.getElementById('apuesta').value).toFixed(2)
      
       console.log(cantidad)
+      
       document.getElementById('conversion').value = cantidad / precio 
       document.getElementById('cartera').innerHTML = " 1 " + moneda + " = " + precio + " USD"
       

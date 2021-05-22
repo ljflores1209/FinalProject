@@ -233,5 +233,26 @@ public class UserDAO {
 			return null;
 		}
 	}
+	
+	public int updateCapital(int id, double restaCapital) {
+		try {
+			String sql = "update user set capital=? where id_user=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setDouble(1, restaCapital);
+			stmt.setInt(2, id);
+
+			int res = stmt.executeUpdate();
+			return res;
+		} catch (Exception ex) {
+
+			System.out.println(ex.getMessage());
+			return -1;
+		}
+	}
+	public double getCalcularCompra(double a, double b ) {
+		return a-b;
+	}
+	
 
 }

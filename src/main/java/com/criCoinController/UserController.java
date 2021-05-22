@@ -26,6 +26,7 @@ public class UserController extends HttpServlet {
 	private CoinDAO modeloCoin;
 	private HttpSession session;
 	private ConexionAPI conexionApi;
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -36,6 +37,7 @@ public class UserController extends HttpServlet {
 		modeloWallet = new WalletDAO();
 		modeloCoin = new CoinDAO();		
 		conexionApi = new ConexionAPI();
+		
 	}
 
 	/**
@@ -171,6 +173,17 @@ public class UserController extends HttpServlet {
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);			
+		}
+		else if(accion.equals("comprar")) {
+			double apuesta = Double.parseDouble(request.getParameter("apuesta")); // almaceno cada uno de los parametros en un String para su posterior uso
+			String conversion = request.getParameter("conversion");
+			UserPojo user = (UserPojo) session.getAttribute("user");
+			double restaCapital = modeloUser.getCalcularCompra(user.getCapital(), apuesta);
+			
+			modeloUser.updateCapital(user.getId_user(),restaCapital);
+			System.out.println(request.getParameter("apuesta"));
+//			modeloWallet.updateWallet(null, 0)
+			
 		}
 		
 		

@@ -150,7 +150,7 @@
   					</div>
   			
   					<select class="custom-select" id="inputGroupSelect01" name='selCoin'>
-    						<option selected>Elige tu moneda...</option>  
+    						<option selected id="859">Elige tu moneda...</option>  
 							<option id="859" value="bitcoin" >BTC</option>
 							<option id="145" value="ethereum">ETH</option>
 							<option id="1209" value="binancecoin">BNB</option>
@@ -160,24 +160,19 @@
  				
 					</div>
 					
-					<form
-					style="margin-bottom: 10px; text-align: left; margin-top: 30px;">
+					<form action="./controller?accion=comprar" method="post" name="myForm" id="idMyform" onsubmit="return validateValorCompra()" style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 					<label>Cantidad de compra:&nbsp;</label>
 					
-					<input class="form-control" id="conversion" readonly type="number" value="0">
-					</form>
-					<div><span id="cartera"></span></div>
-					<form name="myForm" id="idMyform" onsubmit="return validateValorCompra()"
+					<input class="form-control" id="conversion" name="conversion" readonly type="number" value="0">
 					
-					style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
+					<div class="mb-4"><span id="cartera"  >Valor COIN</span></div>
+					
 					<label>Valor de compra:&nbsp;</label>
-					
+				
+					<input class="form-control" id="apuesta" name="apuesta" min="0" max="<c:out value="${user.capital}" />" type="number" value="0">
 
-					<input class="form-control" id="apuesta" min="0" max="<c:out value="${user.capital}" />" type="number" value="0">
-
+					<div class="mb-4"><span id="sonante" min="0" max="<c:out value="${user.capital}" />"><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
 					
-					
-					<div ><span id="sonante" min="0" max="<c:out value="${user.capital}" />"><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
 				</div>

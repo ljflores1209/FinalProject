@@ -138,6 +138,7 @@ public class UserPojo {
 	
 	
 	
+	
 	@Override
 	public String toString() {
 		return "UserPojo [id_user=" + id_user + ", nick=" + nick + ", first_name=" + first_name + ", last_name="

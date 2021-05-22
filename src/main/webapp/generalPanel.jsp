@@ -123,6 +123,16 @@ if (session.getAttribute("user") != null) {//cambio de vacio a null
 						
 					</div>
 				</form>
+				<form
+					style="margin-bottom: 27px; text-align: left; margin-top: 27px;">
+					<label>Metálico(USD):&nbsp;</label>
+					
+					<div class="form-control">
+						
+						<c:out value="${user.capital} $" /> 
+						
+					</div>
+				</form>
 			</div>
 			<div class="col-md-6" style="text-align: left;">
 				<img class="float-left"
