@@ -125,13 +125,13 @@ document.getElementById('coinVenta').innerHTML =  ' ' + moneda + 's';
       let precio = Object.values(objeto);
       precio = precio[0].usd;
       trasporte = precio;
-      const cantidad = parseFloat(document.getElementById('apuestaVenta').value).toFixed(2)
-     
-      /*document.getElementById('conversionVenta').value = valor * apuestaVenta*/ 
+      const cantidad = parseFloat(document.getElementById('apuestaVenta').value)//cantidad de monedas que quiero comprar
+     console.log("cantidad"+cantidad);
+      document.getElementById('conversionVenta').value = valor * cantidad;
+      console.log(document.getElementById('conversionVenta').value = valor * cantidad);
       document.getElementById('precioCoin').innerHTML = " 1 " + moneda + " = " + precio + " USD"
       
-      console.log("moneda" + moneda);
-		console.log("precio" + precio);
+      
       
     })
     .catch(function (err) {
@@ -139,23 +139,34 @@ document.getElementById('coinVenta').innerHTML =  ' ' + moneda + 's';
     })
 }
 
-//---------------on change resta de mi capital_total la cantidad que introduzco en el valor de venta y la cantidad de moneda que compro 
+//---------------on change resta de mi coins que tengo la cantidad que introduzco en el valor de venta y la cantidad de moneda que vendo
 
 let conversionVenta=$("#conversionVenta").val();
-let secvalVenta = $("#carteraVenta").html();
+let secvalVenta =$('#carteraVenta').html();;
 
 let inivalVenta = $("#apuestaVenta").val();
 
 $("#apuestaVenta").change(function() {
 	let cantidadVenta = $("#apuestaVenta").val();
-	$("#carteraVenta").html(secvalVenta - cantidadVenta);
-	let carteraVenta = $('#carteraVenta').html();
+	$("#carteraVenta").html(trasporteValor - cantidadVenta);
 	
-	$("#conversionVenta").val(cantidadVenta * trasporte);//cantidad de moneda
+	 secvalVenta = $('#carteraVenta').html();
+	
+	$("#conversionVenta").val(secvalVenta * trasporte);//cantidad de moneda
 	
 
 	
     });
+    
+    
+    //---------------resta de mi capital_total la cantidad que introduzco en el valor de compra y la cantidad de moneda que compro on keyup
+$("#apuestaVenta").keyup(function() {
+	let cantidadVenta = $("#apuestaVenta").val();
+	$("#carteraVenta").html(secvalVenta - cantidadVenta);
+	
+	$("#conversion").val(secvalVenta * trasporte);//cantidad de moneda
+});
+    
 
 //---------------------------------------fin zona de venta----------------------------------------------------------------------------------------------
 
