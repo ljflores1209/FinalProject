@@ -260,19 +260,20 @@ public class UserDAO {
 		return a+b;
 	}
 	
-	public double getSaldoCoins(int id, int coin) {
+	public double getSaldoCoins(String name_coin,int user_id) {
 		try {
-			String sql = "select total_coin from wallet where id_user=? and id_coin=?";
+			String sql = "select total_coin from wallet,coin where wallet.id_coin=coin.id_coin and coin.name=? and id_user=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setInt(1, id);
-			stmt.setInt(2, coin);
+			stmt.setString(1, name_coin);
+			stmt.setInt(2, user_id);
+			
 
 			ResultSet res = stmt.executeQuery();
 			
             	
             	System.out.println(res.getClass());
             	if (res.next()) {
+            		System.out.println(res.getDouble("total_coin"));
                 	return res.getDouble("total_coin");
                 	
                 }

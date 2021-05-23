@@ -135,7 +135,26 @@ public class CoinDAO {
             return -1;
         }
     }
-    
+    public int getIdCoin(String name) {
+    	try {
+            String sql = "select id_coin from coin where name=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+ 
+            stmt.setString(1, name);
+            
+            
+ 
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+            	return rs.getInt("id_coin");       
+            }
+            
+            return 0;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return -1;
+        }
+    }
     
     
 }

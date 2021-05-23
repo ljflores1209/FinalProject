@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.criCoinWeb.*" %>
 <html lang="es">
 
 <head>
@@ -144,6 +145,7 @@
 			<!-- aqui empieza compraCompra -->
 				<div class="tab-pane container active" id="compra" >
 				<div class="mt-5" >
+				<form action="./controller?accion=comprar" method="post" name="myForm" id="idMyform" onsubmit="return validateValorCompra()" style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 					<div class="input-group mb-3">
   					<div class="input-group-prepend">
     				<label class="input-group-text" for="inputGroupSelect01">PAR</label>
@@ -160,7 +162,7 @@
  				
 					</div>
 					
-					<form action="./controller?accion=comprar" method="post" name="myForm" id="idMyform" onsubmit="return validateValorCompra()" style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
+					
 					<label>Cantidad de compra:&nbsp;</label>
 					
 					<input class="form-control" id="conversion" name="conversion" readonly type="number" value="0">
@@ -169,51 +171,53 @@
 					
 					<label>Valor de compra:&nbsp;</label>
 				
-					<input class="form-control" id="apuesta" name="apuesta" min="0" max="<c:out value="${user.capital}" />" type="number" value="0">
+					<input class="form-control" id="apuesta" name="apuesta" min="0" max='<c:out value="${user.capital}" />' type="number" value="0">
 
-					<div class="mb-4"><span id="sonante" min="0" max="<c:out value="${user.capital}" />"><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					<div class="mb-4"><span id="sonante" min="0" max='<c:out value="${user.capital}" />'><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
 					
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
-					<input  name="id_moneda" id="id_moneda">
+					
 				</div>
 				</div>
 			<!---------- fin compra ------------>
+			<!-- aqui empieza contenido venta -->
 			
-				<div class="tab-pane container fade" id="venta"><!-- aqui empieza contenido venta -->
-
+				<div class="tab-pane container fade" id="venta">
 				<div class="mt-5" >
+				<form action="./controller?accion=vender" method="post" name="myFormVenta" id="idMyformVenta" onsubmit="return validateValorVenta()" style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 					<div class="input-group mb-3">
   						<div class="input-group-prepend">
-    						<label class="input-group-text" for="inputGroupSelect01">PAR</label>
+    						<label class="input-group-text" for="inputGroupSelect02">PAR</label>
   						</div>
   			
-  						<select class="custom-select" id="inputGroupSelect02">
-    						<option selected>Elige tu moneda...</option>  
-							<option id="bitcoin" value="859">BTC</option>
-							<option id="ethereum" value="145">ETH</option>
-							<option id="binancecoin" value="1209">BNB</option>
-							<option id="cardano" value="122882">ADA</option>
-							<option id="dogecoin" value="280">DOGE</option>
+  						<select class="custom-select" id="inputGroupSelect02" name='selCoin2'>
+    						<option selected id="859">Elige tu moneda...</option>  
+							<option id="859" value="bitcoin" >BTC</option>
+							<option id="145" value="ethereum">ETH</option>
+							<option id="1209" value="binancecoin">BNB</option>
+							<option id="122882" value="cardano">ADA</option>
+							<option id="280" value="dogecoin">DOGE</option>
  						</select>
  				
 					</div>
 					
-					<form style="margin-bottom: 10px; text-align: left; margin-top: 30px;">
-						<label>Cantidad de venta:&nbsp;</label>
 					
-						<input class="form-control" type="number">
-					</form>
-				
-					<form style="margin-bottom: 10px; text-align: left; margin-top: 10px;">
 						<label>Valor de venta:&nbsp;</label>
 					
-						<input class="form-control" readonly type="number">
+						<input class="form-control" id="conversionVenta" name="conversionVenta" readonly type="number" value="0"><!-- aqui va lo que ganare en dolares con la venta por la cantidad de coin que pongo abajo -->
 					
+						<div class="mb-4"><span id="precioCoin" />Valor COIN</span></div><!-- aqui va el precio del dolar contra la moneda -->
+						
+		
+						<label>Cantidad de venta:&nbsp;</label>
+						
+						<input class="form-control" id="apuestaVenta" name="apuestaVenta"  type="number" value="0"><!-- aqui elijo cuanta coin quiero vender "apuesta" en caso compra -->
+						
+						<div class="mb-4"><span id="carteraVenta" ></span><span id="coinVenta" >COIN en haber</span></div><!-- aqui va la cantidad de la moneda seleccionada que tengo -->
+						
 					
-					<div><c:out value="${user.fondos} USD" /></div><!-- aqui va la cantidad de dolares que tengo -->
-					
-					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Vender</button></div>
+						<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Vender</button></div>
 					</form>
 				</div>
 
@@ -323,7 +327,46 @@
 			</p>
 		</div>
 	</footer>
+	<script type="text/javascript">
+
+	let monedas = <% 
 	
+	System.out.println("User: "+session.getAttribute("user"));
+	UserPojo user = (UserPojo)session.getAttribute("user"); //declaro el userpojo habido importado arriba @ page import="com.criCoinWeb.*" 
+	out.print("[");
+	//for (WalletPojo wp: user.getCartera()){
+		for (int i=0;i<user.getCartera().size();i++){ //recorro para sacar los valores
+			
+		WalletPojo wp = user.getCartera().get(i);
+		out.print("['"+wp.getMoneda().getName()+"',"+wp.getTotal_coin()+"]");
+		
+		if (i<user.getCartera().size()-1){
+			out.println(",");
+		}
+		//out.print("["+);
+		
+	}
+	out.print("];");
+	
+	%>
+	
+	
+	function valorCoin(coinName){ //funcion para usar luego en js
+		
+		for (var i=0; i<monedas.length;i++){ //recorro el array para sacar el valor de la moneda que le meto por parametro
+		if (monedas[i][0] == coinName){
+			return monedas[i][1];	
+		}
+		
+		}
+		
+		
+	
+	}
+	
+	
+
+	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/bs-init.js"></script>

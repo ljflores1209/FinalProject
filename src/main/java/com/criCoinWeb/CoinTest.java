@@ -8,7 +8,7 @@ public class CoinTest {
 //		CoinDAO moneda1 = new CoinDAO();
 		UserDAO tio = new UserDAO();
 //		ApiPojo apiPojo = new ApiPojo();
-		System.out.println(tio.getSaldoCoins(202, 2));
+//		System.out.println(tio.getSaldoCoins(202, 2));
 		
 //		System.out.println(tio.getUser(1).getFondos());
 //		ConexionAPI conexionApi = new ConexionAPI();

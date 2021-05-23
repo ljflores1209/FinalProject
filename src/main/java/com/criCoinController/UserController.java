@@ -95,8 +95,8 @@ public class UserController extends HttpServlet {
 			//usuario.setCartera(userTemp.getCartera());//recupero la cartera del usuario anterior ----mio prueba 1
 			//session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));// mio prueba 2 recupera pero no almacena
 			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(email)));//mio prueba 3 recuperos el usuario por el email
-			
-			
+			session = request.getSession(true);
+			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(email)));
 			//session.setAttribute("user", usuario);//(original)con el nuevo objeto usuario machaco el atributo user aterior y esta vez sin cartera cambio al de arriba
 			
 			
@@ -167,23 +167,34 @@ public class UserController extends HttpServlet {
 			
 			ConexionAPI conexionApi = new ConexionAPI();	
 //			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
-			session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
-			session.setAttribute("precioBit", conexionApi.bitcoinGetter());
+			session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));//aplico el usuario con la cartera a la sesion
+			session.setAttribute("precioBit", conexionApi.bitcoinGetter());//aplico a la sesion el valor del precio del bitcoin
 //				System.out.println(session.getAttribute("wallet"));
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);			
 		}
 		else if(accion.equals("comprar")) {
+			String monedaNom = request.getParameter("selCoin");//recupero el nombre de la moneda que compro
 			double apuesta = Double.parseDouble(request.getParameter("apuesta")); // almaceno cada uno de los parametros en un String para su posterior uso
-			double conversion =Double.parseDouble(request.getParameter("conversion"));
-			UserPojo user = (UserPojo) session.getAttribute("user");
-			double restaCapital = modeloUser.getRestarCapital(user.getCapital(), apuesta);
-//			double conversionDB = modeloUser.getSumarMonedas(modeloUser.getSaldoCoins(user.getId_user(), ), conversion);
-			modeloUser.updateCapital(user.getId_user(),restaCapital);
-			System.out.println(request.getParameter("apuesta"));
-//			
-			
+			double conversion =Double.parseDouble(request.getParameter("conversion"));//recupero la cantidad de coins que compro
+			UserPojo user = (UserPojo) session.getAttribute("user");//recupero los atributos del usuario
+			double restaCapital = modeloUser.getRestarCapital(user.getCapital(), apuesta);//calculo la resta del capital total - el que uso para la compra
+			double conversionDB = modeloUser.getSumarMonedas(modeloUser.getSaldoCoins(monedaNom,user.getId_user()), conversion);
+			modeloUser.updateCapital(user.getId_user(),restaCapital);// actualizo el capital de la base de datos
+			int id_wallet = modeloWallet.getIdWallet(monedaNom, user.getId_user());//recupero la id del wallet en base al nombre de la moneda y la id del usuario
+			if (id_wallet==0) {//condicion para actualizar o crear nuevo
+				WalletPojo walletpojo = new WalletPojo(0,conversion,user.getId_user(),modeloCoin.getIdCoin(monedaNom),null);//creo el nuevo wallet pojo con los valores
+				System.out.println("conversion:" + conversion);
+				modeloWallet.addWallet(walletpojo); //creo el nuevo wallet en la base de datos
+			}else if(id_wallet>0) {
+				modeloWallet.updateWallet(conversionDB, modeloCoin.getIdCoin(monedaNom), user.getId_user());//actualizo el wallet de la base de datos
+			}
+			session = request.getSession(true);
+			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(user.getEmail())));//aplico a la sesion el usuario para actualizar los valores que he cambiado en la misma
+				
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+            dispatcher.forward(request, response);		
 		}
 		
 		
