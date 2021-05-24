@@ -51,7 +51,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="mercado.jsp">Mercado</a></li>
                     <li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./controller?accion=ranking">Ranking</a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="generalPanel.jsp">Cartera</a></li>
 					<li class="nav-item">

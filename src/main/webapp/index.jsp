@@ -32,7 +32,7 @@
             	<a class="login" href="mercado.jsp">Mercado&nbsp;</a>
             	<a class="login" href="blog.jsp">Blog&nbsp;</a>
 				<a class="login" href="About.jsp">About&nbsp;</a>
-				<a class="login" href="ranking.jsp">Ranking&nbsp;</a>
+				<a class="login" href="./controller?accion=ranking">Ranking&nbsp;</a>
 				
 				
             <%if(session.getAttribute("user")=="" || session.getAttribute("user")==null){ %>

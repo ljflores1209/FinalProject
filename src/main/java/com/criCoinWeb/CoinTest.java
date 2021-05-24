@@ -17,6 +17,9 @@ public class CoinTest {
 		
 //		System.out.println(conexionApi.infoMonedasUserById(1).get(0).getTotal());
 //		System.out.println(conexionApi.bitcoinGetter());
+//		System.out.println(tio.getUsersSorted());
+		
+		
 		
 		
 	}

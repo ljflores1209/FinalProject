@@ -134,8 +134,6 @@ public class UserController extends HttpServlet {
             }		
 		} else if(accion.equals("cerrarSesion")) {
 			session.invalidate();//manera correcta de cerrar la session destruyendola-Mio
-//			session = request.getSession(true);
-//            session.setAttribute("user", "");
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
             
@@ -149,7 +147,6 @@ public class UserController extends HttpServlet {
 			request.setAttribute("user", user);
 			
 			ConexionAPI conexionApi = new ConexionAPI();	
-//			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
 			session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));
 			System.out.println(user.getId_user());
 			session.setAttribute("precioBit", conexionApi.bitcoinGetter());
@@ -195,8 +192,7 @@ public class UserController extends HttpServlet {
 				
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);		
-		}
-		else if(accion.equals("vender")) {
+		}else if(accion.equals("vender")) {
 			String monedaNom = request.getParameter("buyCoin");//recupero el nombre de la moneda que vendo
 			double conversion = Double.parseDouble(request.getParameter("conversionVenta")); // recupero la cantidad de dolares que he ganado
 			double apuesta =Double.parseDouble(request.getParameter("apuestaVenta"));//recupero la cantidad de coins que he vendido
@@ -213,6 +209,10 @@ public class UserController extends HttpServlet {
 				
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);		
+		}else if(accion.equals("ranking")) {
+			request.setAttribute("users", modeloUser.getUsersSorted());
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ranking.jsp");
+            dispatcher.forward(request, response);	
 		}
 		
 		

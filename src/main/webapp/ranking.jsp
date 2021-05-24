@@ -1,6 +1,7 @@
-<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -42,6 +43,7 @@
     <link rel="stylesheet" href="assets/css/Projects-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="assets/css/ranking.css">
 </head>
 
 <body>
@@ -66,156 +68,30 @@
         </div>
     </nav>
     <h1 style="font-size: 34px;text-align: center;padding: 0px;margin-top: 46px;">RANKING</h1>
-    <section class="mt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col" style="margin-bottom: 42px;margin-top: 26px;">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div class="table-responsive table mb-0 pt-3 pr-2">
-                                <table class="table table-striped table-sm my-0 mydatatable">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 200px;">Posición</th>
-                                            <th style="width: 200px;">Nick</th>
-                                            <th style="width: 200px;">Nº Transacciones</th>
-                                            <th style="width: 200px;">Beneficio Semanal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    <div class="container py-5">
+	<div class="container py-5">
         <div class="row">
-            <div class="col-lg-7 mx-auto bg-white rounded shadow">
+            <div class="ranking-container col-lg-9 mx-auto bg-white rounded shadow">
+             
+            <input type="text" id="myInput" placeholder="¡Búscate!">
 
-                <!-- Fixed header table-->
-                <div class="table-responsive">
-                    <table class="table table-fixed">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="col-3">#</th>
-                                <th scope="col" class="col-3">First</th>
-                                <th scope="col" class="col-3">Last</th>
-                                <th scope="col" class="col-3">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" class="col-3">1</th>
-                                <td class="col-3">Mark</td>
-                                <td class="col-3">Otto</td>
-                                <td class="col-3">@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">2</th>
-                                <td class="col-3">Jacob</td>
-                                <td class="col-3">Thornton</td>
-                                <td class="col-3">@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">3</th>
-                                <td colspan="2" class="col-6">Larry the Bird</td>
-                                <td class="col-3">@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">4</th>
-                                <td class="col-3">Martin</td>
-                                <td class="col-3">Williams</td>
-                                <td class="col-3">@Marty</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">5</th>
-                                <td colspan="2" class="col-3">Sam</td>
-                                <td colspan="2" class="col-3">Pascal</td>
-                                <td class="col-3">@sam</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">6</th>
-                                <td class="col-3">John</td>
-                                <td class="col-3">Green</td>
-                                <td class="col-3">@john</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">7</th>
-                                <td colspan="2" class="col-3">David</td>
-                                <td colspan="2" class="col-3">Bowie</td>
-                                <td class="col-3">@david</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">8</th>
-                                <td class="col-3">Pedro</td>
-                                <td class="col-3">Rodriguez</td>
-                                <td class="col-3">@rod</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">5</th>
-                                <td colspan="2" class="col-3">Sam</td>
-                                <td colspan="2" class="col-3">Pascal</td>
-                                <td class="col-3">@sam</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">10</th>
-                                <td class="col-3">Jacob</td>
-                                <td class="col-3">Thornton</td>
-                                <td class="col-3">@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-3">11</th>
-                                <td colspan="2" class="col-6">Larry the Bird</td>
-                                <td class="col-3">@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><!-- End -->
+			<table id="myTable">
+			  <tr class="header">
+			    <th>Nº</th>
+			    <th>Nombre</th>
+			    <th>Nick</th>
+			    <th>Fondos netos</th>
+			  </tr>
+			  <c:set var = "i" value = "${0}"/>                 
+                     <c:forEach items="${users}" var="user">
+						<c:set var = "i" value = "${i+1}"/>
+                           <tr>
+                               <th scope="row" class="col-3"><c:out value="${i}"/></th>
+                               <td class="col-3">${user.first_name}</td>
+                               <td class="col-3">${user.nick}</td>
+                               <td class="col-3">${user.fondos}</td>
+                           </tr>
+					</c:forEach> 
+			</table>
                 
             </div>
         </div>
@@ -269,6 +145,7 @@
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
     <script src="assets/js/Bootstrap-DataTables.js"></script>
     <script src="assets/js/DataTable---Fully-BSS-Editable.js"></script>
+    <script src="assets/js/ranking.js"></script>
 </body>
 
 </html>

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -73,7 +74,33 @@ public class UserDAO {
 			return null;
 		}
 	}
+	
+	public List<UserPojo> getUsersSorted() {
+		try {
+			String sql = "select * from user limit ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1, max_records);
 
+			ResultSet rs = stmt.executeQuery();
+
+			List<UserPojo> userList = new ArrayList<UserPojo>();
+
+			while (rs.next()) {
+				UserPojo user = new UserPojo(rs.getInt("id_user"), rs.getString("nick"), rs.getString("first_name"),
+						rs.getString("last_name"), rs.getDate("b_date"), rs.getString("country"), rs.getString("email"),
+						rs.getString("pass"),rs.getDouble("capital"));
+				userList.add(user);			
+			}
+			
+			userList.sort(Comparator.comparing(UserPojo::getFondos).reversed());			
+			return userList;
+		} catch (Exception ex) {
+			System.out.println(ex);
+			return null;
+		}
+	}		
+
+	
 	public int addUser(UserPojo user) {
 		try {
 			String sql = "insert into user (nick,first_name,last_name,b_date,country,email,pass,capital) values (?,?,?,?,?,?,?,?)";

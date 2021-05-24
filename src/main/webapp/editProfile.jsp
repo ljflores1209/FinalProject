@@ -74,7 +74,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link active" href="#">Mercado</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Academia</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Ranking</a></li>
+					<li class="nav-item"><a class="nav-link" href="./controller?accion=ranking">Ranking</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Perfil&nbsp;<i
 							class="fa fa-user" style="color: #2a076e;"></i></a></li>

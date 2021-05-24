@@ -79,7 +79,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"></li>
 					<li class="nav-item"><a class="nav-link" href="academia.jsp">Academia</a></li>
-					<li class="nav-item"><a class="nav-link" href="ranking.jsp">Ranking</a></li>
+					<li class="nav-item"><a class="nav-link" href="./controller?accion=ranking">Ranking</a></li>
 					<li class="nav-item"><a class="nav-link" href="about.jsp">About</a></li>
 					<li class="nav-item"></li>
 					<li class="nav-item"><a class="nav-link" href="./controller?accion=recuperarDatosCartera">Cartera</a></li>
@@ -167,7 +167,7 @@
 					
 					<input class="form-control" id="conversion" name="conversion" readonly type="number" value="0">
 					
-					<div class="mb-4"><span id="cartera"  >Valor COIN</span></div>
+					<div class="mb-4"><span id="cartera">Valor COIN</span></div>
 					
 					<label>Valor de compra:&nbsp;</label>
 				

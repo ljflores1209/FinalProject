@@ -15,6 +15,7 @@ public class UserPojo {
 	private double capital;
 	private List<WalletPojo> cartera;
 	
+	
 
 	public UserPojo(int id_user, String email, String pass) {
 		this.id_user = id_user;
@@ -39,6 +40,9 @@ public class UserPojo {
 		this.country = country;
 		this.cartera = new ArrayList<WalletPojo>();
 		this.capital = capital;
+	}
+	
+	public UserPojo() {
 	}
 
 	public int getId_user() {
