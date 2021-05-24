@@ -12,12 +12,15 @@ $('select').on('change', function() {
 
 let trasport = 0;// precio de la moneda seleccionada
 
+let trasporteSonante = document.getElementById('sonante').innerHTML;
 
 document.getElementById('inputGroupSelect01').addEventListener('change', cambiar)
 function cambiar () {
 
 let moneda = this.value;
-
+document.getElementById('apuesta').value = " ";
+document.getElementById('conversion').value = 0;
+document.getElementById('sonante').innerHTML = trasporteSonante;
   fetch("https://api.coingecko.com/api/v3/simple/price?ids=" + this.value + "&vs_currencies=usd")
     .then(function (response) { // Si tengo respuesta
       return response.text() // El html de la página me lo pasas al siguiente then
@@ -30,12 +33,12 @@ let moneda = this.value;
       let precio = Object.values(objeto);
       precio = precio[0].usd;
       trasport = precio;
-      const cantidad = parseFloat(document.getElementById('apuesta').value).toFixed(2)
+      //const cantidad = parseFloat(document.getElementById('apuesta').value).toFixed(2);
      
-      console.log(cantidad)
       
-      document.getElementById('conversion').value = cantidad / precio 
-      document.getElementById('cartera').innerHTML = " 1 " + moneda + " = " + precio + " USD"
+      
+      //document.getElementById('conversion').value = cantidad / precio 
+      document.getElementById('cartera').innerHTML = " 1 " + moneda + " = " + trasport + " USD";
       
     })
     .catch(function (err) {
@@ -46,7 +49,7 @@ let moneda = this.value;
 
 //---------------resta de mi capital_total la cantidad que introduzco en el valor de compra y la cantidad de moneda que compro on change
 
-let conversion=$("#conversion").val();
+/*let conversion=$("#conversion").val();
 let secval = $("#sonante").html();
 
 let inival = $("#apuesta").val();
@@ -68,12 +71,12 @@ $("#apuesta").keyup(function() {
 	
 	$("#conversion").val(cantidad / trasport);//cantidad de moneda
 });
+*/
 
 
 
 
-
-const form = document.getElementById('idForm');
+/*const form = document.getElementById('idForm');
 
 function validateValorCompra() {
     var acumErrores = 0;
@@ -94,7 +97,27 @@ function validateValorCompra() {
     }else{
 		return true;
 	}
-}
+}*/
+
+
+
+
+
+    $("#apuesta").on("input", function(){ 
+   
+    if (($("#apuesta").val()>=0) && ($("#apuesta").val()<=$("#sonanteIni").html())){
+        
+	$("#sonante").html($("#sonanteIni").html() - $("#apuesta").val());
+
+	$("#conversion").val($("#apuesta").val() / trasport);//cantidad de moneda
+	}else{
+	$("#apuesta").val(" ");
+	$("#sonante").html($("#sonanteIni").html());
+	$("#conversion").val(0);
+	}
+    });
+
+
 
 //---------------------------------------fin zona de compra---------------------------------------------------------------------------------------------
 
@@ -112,7 +135,7 @@ let valor = valorCoin(moneda); //declaro valor para usar la funcion que tengo en
 trasporteValor = valor;
 document.getElementById('carteraVenta').innerHTML = valor ; //imprimo la cantidad de monedas que tengo
 document.getElementById('coinVenta').innerHTML =  ' ' + moneda + 's';
-document.getElementById('apuestaVenta').value = "0";
+document.getElementById('apuestaVenta').value = " ";
 
   fetch("https://api.coingecko.com/api/v3/simple/price?ids=" + this.value + "&vs_currencies=usd")
     .then(function (response) { // Si tengo respuesta
@@ -142,31 +165,7 @@ document.getElementById('apuestaVenta').value = "0";
 
 //---------------on change resta de mi coins que tengo la cantidad que introduzco en el valor de venta y la cantidad de moneda que vendo
 
-/*let conversionVenta=$("#conversionVenta").val();
-let secvalVenta =$('#carteraVenta').html();;
 
-let inivalVenta = $("#apuestaVenta").val();
-
-$("#apuestaVenta").change(function() {
-	let cantidadVenta = $("#apuestaVenta").val();
-	$("#carteraVenta").html(trasporteValor - cantidadVenta);
-	
-	 secvalVenta = $('#carteraVenta').html();
-	
-	$("#conversionVenta").val(secvalVenta * trasporte);//cantidad de moneda
-	
-
-	
-    });
-    
-    
-    //---------------resta de mi capital_total la cantidad que introduzco en el valor de compra y la cantidad de moneda que compro on keyup
-$("#apuestaVenta").keyup(function() {
-	let cantidadVenta = $("#apuestaVenta").val();
-	$("#carteraVenta").html(secvalVenta - cantidadVenta);
-	
-	$("#conversion").val(secvalVenta * trasporte);//cantidad de moneda
-});*/
 
 $(document).ready(function(){
 
@@ -177,7 +176,7 @@ $(document).ready(function(){
 
 	$("#conversionVenta").val($("#apuestaVenta").val() * trasporte);//cantidad de moneda
 	}else{
-	$("#apuestaVenta").val(0);
+	$("#apuestaVenta").val(" ");
 	$("#carteraVenta").html(trasporteValor);
 	$("#conversionVenta").val(0);
 	}

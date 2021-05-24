@@ -167,13 +167,13 @@
 					
 					<input class="form-control" id="conversion" name="conversion" readonly type="number" value="0">
 					
-					<div class="mb-4"><span id="cartera"  >Valor COIN</span></div>
+					<div class="mb-4"><span id="cartera">Valor COIN</span></div>
 					
 					<label>Valor de compra:&nbsp;</label>
 				
-					<input class="form-control" id="apuesta" name="apuesta" min="0" max='<c:out value="${user.capital}" />' type="number" value="0">
+					<input class="form-control" id="apuesta" name="apuesta"  type="number" value=" " placeholder="Introduce la cantidad...">
 
-					<div class="mb-4"><span id="sonante" min="0" max='<c:out value="${user.capital}" />'><c:out value="${user.capital}" /></span> USD</div><!-- aqui va la cantidad de dolares que tengo -->
+					<div class="mb-4"><span id="sonante" ><c:out value="${user.capital}" /></span> USD<span id="sonanteIni" style="display:none"><c:out value="${user.capital}" /></span></div><!-- aqui va la cantidad de dolares que tengo -->
 					
 					<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Comprar</button></div>
 					</form>
@@ -212,9 +212,9 @@
 		
 						<label>Cantidad de venta:&nbsp;</label>
 						
-						<input class="form-control" id="apuestaVenta" name="apuestaVenta"  type="number" value="0"><!-- aqui elijo cuanta coin quiero vender "apuesta" en caso compra -->
+						<input class="form-control" id="apuestaVenta" name="apuestaVenta"  type="number" value=" " placeholder="Introduce la cantidad..."><!-- aqui elijo cuanta coin quiero vender "apuesta" en caso compra -->
 						
-						<div class="mb-4"><span id="carteraVenta" ></span><span id="coinVenta" >COIN en haber</span></div><!-- aqui va la cantidad de la moneda seleccionada que tengo -->
+						<div class="mb-4"><span id="carteraVenta" ></span><span id="coinVenta" >COINs en haber</span></div><!-- aqui va la cantidad de la moneda seleccionada que tengo -->
 						
 					
 						<div class="mt-2"><button type="submit" class="btn  btn-block mt-2 comVen">Vender</button></div>
