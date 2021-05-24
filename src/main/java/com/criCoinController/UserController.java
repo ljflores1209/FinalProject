@@ -176,7 +176,7 @@ public class UserController extends HttpServlet {
 		}
 		else if(accion.equals("comprar")) {
 			String monedaNom = request.getParameter("selCoin");//recupero el nombre de la moneda que compro
-			double apuesta = Double.parseDouble(request.getParameter("apuesta")); // almaceno cada uno de los parametros en un String para su posterior uso
+			double apuesta = Double.parseDouble(request.getParameter("apuesta")); // recupero la cantidad de dolares que he gastado
 			double conversion =Double.parseDouble(request.getParameter("conversion"));//recupero la cantidad de coins que compro
 			UserPojo user = (UserPojo) session.getAttribute("user");//recupero los atributos del usuario
 			double restaCapital = modeloUser.getRestarCapital(user.getCapital(), apuesta);//calculo la resta del capital total - el que uso para la compra
@@ -196,7 +196,24 @@ public class UserController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);		
 		}
-		
+		else if(accion.equals("vender")) {
+			String monedaNom = request.getParameter("buyCoin");//recupero el nombre de la moneda que vendo
+			double conversion = Double.parseDouble(request.getParameter("conversionVenta")); // recupero la cantidad de dolares que he ganado
+			double apuesta =Double.parseDouble(request.getParameter("apuestaVenta"));//recupero la cantidad de coins que he vendido
+			UserPojo user = (UserPojo) session.getAttribute("user");//recupero los atributos del usuario
+			double sumaCapital = modeloUser.getSumarMonedas(user.getCapital(), conversion);//calculo la suma del capital total + el que gano por la venta
+			double restaCoins = modeloUser.getRestarCapital(modeloUser.getSaldoCoins(monedaNom,user.getId_user()), apuesta);//resto las monedas que he vendido de las que tengo en el wallet
+			modeloUser.updateCapital(user.getId_user(),sumaCapital);// actualizo el capital de la base de datos
+			int id_wallet = modeloWallet.getIdWallet(monedaNom, user.getId_user());//recupero la id del wallet en base al nombre de la moneda y la id del usuario
+			
+			modeloWallet.updateWallet(restaCoins, modeloCoin.getIdCoin(monedaNom), user.getId_user());//actualizo el wallet de la base de datos
+			
+			session = request.getSession(true);
+			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(user.getEmail())));//aplico a la sesion el usuario para actualizar los valores que he cambiado en la misma
+				
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
+            dispatcher.forward(request, response);		
+		}
 		
 		
 	}

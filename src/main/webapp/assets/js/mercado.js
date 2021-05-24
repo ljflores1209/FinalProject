@@ -112,6 +112,7 @@ let valor = valorCoin(moneda); //declaro valor para usar la funcion que tengo en
 trasporteValor = valor;
 document.getElementById('carteraVenta').innerHTML = valor ; //imprimo la cantidad de monedas que tengo
 document.getElementById('coinVenta').innerHTML =  ' ' + moneda + 's';
+document.getElementById('apuestaVenta').value = "0";
 
   fetch("https://api.coingecko.com/api/v3/simple/price?ids=" + this.value + "&vs_currencies=usd")
     .then(function (response) { // Si tengo respuesta
@@ -125,10 +126,10 @@ document.getElementById('coinVenta').innerHTML =  ' ' + moneda + 's';
       let precio = Object.values(objeto);
       precio = precio[0].usd;
       trasporte = precio;
-      const cantidad = parseFloat(document.getElementById('apuestaVenta').value)//cantidad de monedas que quiero comprar
-     console.log("cantidad"+cantidad);
-      document.getElementById('conversionVenta').value = valor * cantidad;
-      console.log(document.getElementById('conversionVenta').value = valor * cantidad);
+      //let cantidad = parseFloat(document.getElementById('apuestaVenta').value)//cantidad de monedas que quiero comprar
+     
+      document.getElementById('conversionVenta').value = valor * document.getElementById('apuestaVenta').value;
+      //console.log(document.getElementById('conversionVenta').value = valor * cantidad);
       document.getElementById('precioCoin').innerHTML = " 1 " + moneda + " = " + precio + " USD"
       
       
@@ -141,7 +142,7 @@ document.getElementById('coinVenta').innerHTML =  ' ' + moneda + 's';
 
 //---------------on change resta de mi coins que tengo la cantidad que introduzco en el valor de venta y la cantidad de moneda que vendo
 
-let conversionVenta=$("#conversionVenta").val();
+/*let conversionVenta=$("#conversionVenta").val();
 let secvalVenta =$('#carteraVenta').html();;
 
 let inivalVenta = $("#apuestaVenta").val();
@@ -165,7 +166,26 @@ $("#apuestaVenta").keyup(function() {
 	$("#carteraVenta").html(secvalVenta - cantidadVenta);
 	
 	$("#conversion").val(secvalVenta * trasporte);//cantidad de moneda
+});*/
+
+$(document).ready(function(){
+
+    $("#apuestaVenta").on("input", function(){//funcion correcta para cambio
+    if (($("#apuestaVenta").val()>=0) && ($("#apuestaVenta").val()<=trasporteValor)){
+        
+	$("#carteraVenta").html(trasporteValor - $("#apuestaVenta").val());
+
+	$("#conversionVenta").val($("#apuestaVenta").val() * trasporte);//cantidad de moneda
+	}else{
+	$("#apuestaVenta").val(0);
+	$("#carteraVenta").html(trasporteValor);
+	$("#conversionVenta").val(0);
+	}
+    });
 });
+
+
+
     
 
 //---------------------------------------fin zona de venta----------------------------------------------------------------------------------------------

@@ -191,7 +191,7 @@
     						<label class="input-group-text" for="inputGroupSelect02">PAR</label>
   						</div>
   			
-  						<select class="custom-select" id="inputGroupSelect02" name='selCoin2'>
+  						<select class="custom-select" id="inputGroupSelect02" name='buyCoin'>
     						<option selected id="859">Elige tu moneda...</option>  
 							<option id="859" value="bitcoin" >BTC</option>
 							<option id="145" value="ethereum">ETH</option>
