@@ -202,5 +202,5 @@ form.addEventListener('blur', (event) => {
 // ETH 145
 // BNB 1209
 // ADA 122882
-// DOGE 280
+// LTC 359
 // DOLAR 1505

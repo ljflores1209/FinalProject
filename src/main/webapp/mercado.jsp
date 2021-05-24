@@ -157,7 +157,7 @@
 							<option id="145" value="ethereum">ETH</option>
 							<option id="1209" value="binancecoin">BNB</option>
 							<option id="122882" value="cardano">ADA</option>
-							<option id="280" value="dogecoin">DOGE</option>
+							<option id="359" value="litecoin">LTC</option>
  						</select>
  				
 					</div>
@@ -197,7 +197,7 @@
 							<option id="145" value="ethereum">ETH</option>
 							<option id="1209" value="binancecoin">BNB</option>
 							<option id="122882" value="cardano">ADA</option>
-							<option id="280" value="dogecoin">DOGE</option>
+							<option id="359" value="litecoin">LTC</option>
  						</select>
  				
 					</div>
@@ -332,7 +332,7 @@
 	let monedas = <% 
 	
 	System.out.println("User: "+session.getAttribute("user"));
-	UserPojo user = (UserPojo)session.getAttribute("user"); //declaro el userpojo habido importado arriba @ page import="com.criCoinWeb.*" 
+	UserPojo user = (UserPojo)session.getAttribute("user"); //declaro el userpojo habiendodo importado arriba @ page import="com.criCoinWeb.*" 
 	out.print("[");
 	//for (WalletPojo wp: user.getCartera()){
 		for (int i=0;i<user.getCartera().size();i++){ //recorro para sacar los valores
