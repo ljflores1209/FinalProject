@@ -31,7 +31,7 @@ public class ConexionAPI {
 
 				JSONObject object = json.getJSONObject(0);
 				coinInfo = new ApiPojo(object.getString("name"), object.getString("symbol"),
-						object.getInt("current_price"), listaUsuarioMonedas.get(i).getTotal_coin());
+						object.getDouble("current_price"), listaUsuarioMonedas.get(i).getTotal_coin());
 				listaDatosMonedas.add(coinInfo);
 
 				// object.getInt("current_price")) * peticionDAOCuantasMonedasdeEstasTengo
@@ -64,27 +64,6 @@ public class ConexionAPI {
 		return bitcoinInfo;
 	}
 	
-//	public double getCoinPrice(String coinName) {
-//
-//		ApiPojo getCoinPrice = new ApiPojo();
-//
-//		try {
-//			String resultado = peticionHttpGet("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coinName+"&order=market_cap_desc&per_page=100&page=1&sparkline=false");// recorro la listade las monedasque tiene elususario en la base de datos y cojo de la posicion i la moneda y en nombre
-//			JSONArray json = new JSONArray(resultado);
-//			System.out.println(json);
-//
-//			JSONObject object = json.getJSONObject(0);
-//			getCoinPrice = new ApiPojo(object.getString("name"), object.getString("symbol"),
-//					object.getInt("current_price"));
-//
-//			// object.getInt("current_price")) * peticionDAOCuantasMonedasdeEstasTengo
-//		} catch (Exception ex) {
-//			System.out.println(ex);
-//		}
-//
-//		return getCoinPrice();
-//	}
-
 	public static String peticionHttpGet(String urlParaVisitar) throws Exception {
 		// Esto es lo que vamos a devolver
 		StringBuilder resultado = new StringBuilder();

@@ -294,10 +294,8 @@ public class UserDAO {
 			stmt.setString(1, name_coin);
 			stmt.setInt(2, user_id);
 			
-
 			ResultSet res = stmt.executeQuery();
-			
-            	
+			            	
             	System.out.println(res.getClass());
             	if (res.next()) {
             		System.out.println(res.getDouble("total_coin"));

@@ -86,20 +86,13 @@ public class UserController extends HttpServlet {
 			String pass = request.getParameter("pass");
 			double capital = Double.parseDouble(request.getParameter("capital"));
 			
-			//UserPojo user = (UserPojo)session.getAttribute("user");//guardamos la cartera del usuario anterior prueba 1
-			
 			UserPojo usuario = new UserPojo(0, nick, first_name, last_name, b_date, country, email, pass, capital);//creo un objeto nuevo que carece de cartera
 			modeloUser.updateUser(usuario, modeloUser.getUserIdByEmail(email));
 			
 			session = request.getSession(true);
-			//usuario.setCartera(userTemp.getCartera());//recupero la cartera del usuario anterior ----mio prueba 1
-			//session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));// mio prueba 2 recupera pero no almacena
 			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(email)));//mio prueba 3 recuperos el usuario por el email
 			session = request.getSession(true);
-			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(email)));
-			//session.setAttribute("user", usuario);//(original)con el nuevo objeto usuario machaco el atributo user aterior y esta vez sin cartera cambio al de arriba
-			
-			
+			session.setAttribute("user", modeloUser.getUser(modeloUser.getUserIdByEmail(email)));						
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
 			dispatcher.forward(request, response);
@@ -163,10 +156,8 @@ public class UserController extends HttpServlet {
 			request.setAttribute("user", user);
 			
 			ConexionAPI conexionApi = new ConexionAPI();	
-//			System.out.println(conexionApi.infoMonedasUserById(user.getId_user()));
 			session.setAttribute("wallet", conexionApi.infoMonedasUserById(user.getId_user()));//aplico el usuario con la cartera a la sesion
 			session.setAttribute("precioBit", conexionApi.bitcoinGetter());//aplico a la sesion el valor del precio del bitcoin
-//				System.out.println(session.getAttribute("wallet"));
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("mercado.jsp");
             dispatcher.forward(request, response);			
@@ -213,9 +204,7 @@ public class UserController extends HttpServlet {
 			request.setAttribute("users", modeloUser.getUsersSorted());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ranking.jsp");
             dispatcher.forward(request, response);	
-		}
-		
-		
+		}		
 	}
 
 	/**

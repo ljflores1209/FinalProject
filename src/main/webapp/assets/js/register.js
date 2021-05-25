@@ -1,16 +1,16 @@
 const form = document.getElementById('register');
 
 function registerValidate() {
-	var acumErrores = 0;
+	let acumErrores = 0;
 	
 	form.classList.remove('is-invalid');
 	
     
-	var inputEmail = document.getElementById('inputEmail');
+	let inputEmail = document.getElementById('inputEmail');
 	
-	var inputEmail = document.forms["reg"]["inputEmail"];
-	var inputPassword = document.forms["reg"]["inputPassword"];
-	var inputConfirmPassword = document.forms["reg"]["inputConfirmPassword"];
+	let inputEmail = document.forms["reg"]["inputEmail"];
+	let inputPassword = document.forms["reg"]["inputPassword"];
+	let inputConfirmPassword = document.forms["reg"]["inputConfirmPassword"];
 
     
 	if(inputEmail.value == "") {
@@ -23,9 +23,9 @@ function registerValidate() {
 		acumErrores ++;
 	}
 
-    var lcl = /[a-z]/g;
-	var ucl = /[A-Z]/g;
-	var numbers = /[0-9]/g;
+    let lcl = /[a-z]/g;
+	let ucl = /[A-Z]/g;
+	let numbers = /[0-9]/g;
 
     if(inputPassword.value == "") {
 		inputPassword.classList.add("is-invalid");
@@ -75,6 +75,6 @@ form.addEventListener('blur', (event) => {
 }, true);
 
 function validar_email(email) {
-	var regex = /^([ña-zA-Z0-9_\.\-])+\@(([ña-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	let regex = /^([ña-zA-Z0-9_\.\-])+\@(([ña-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email) ? true : false;
 }

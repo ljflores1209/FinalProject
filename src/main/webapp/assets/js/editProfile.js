@@ -1,21 +1,21 @@
 const form = document.getElementById('profile');
 
 function profileValidate() {
-	var acumErrores = 0;
+	let acumErrores = 0;
 	
 	form.classList.remove('is-invalid');
 	
     
-	var inputEmail = document.getElementById('inputEmail');
+	let inputEmail = document.getElementById('inputEmail');
 	
-	var inputEmail = document.forms["prof"]["inputEmail"];
-	var inputPassword = document.forms["prof"]["inputPassword"];
-	var inputNick = document.forms["prof"]["inputNick"];
-	var inputName = document.forms["prof"]["inputName"];
-	var inputLastName = document.forms["prof"]["inputLastName"];
-	var inputDate = document.forms["prof"]["inputDate"];
-	var inputCountry = document.forms["prof"]["inputCountry"];
-	var inputCapital = document.forms["prof"]["inputCapital"];
+	let inputEmail = document.forms["prof"]["inputEmail"];
+	let inputPassword = document.forms["prof"]["inputPassword"];
+	let inputNick = document.forms["prof"]["inputNick"];
+	let inputName = document.forms["prof"]["inputName"];
+	let inputLastName = document.forms["prof"]["inputLastName"];
+	let inputDate = document.forms["prof"]["inputDate"];
+	let inputCountry = document.forms["prof"]["inputCountry"];
+	let inputCapital = document.forms["prof"]["inputCapital"];
 
     
 	if(inputEmail.value == "") {
@@ -28,9 +28,9 @@ function profileValidate() {
 		acumErrores ++;
 	}
 
-    var lcl = /[a-z]/g;
-	var ucl = /[A-Z]/g;
-	var numbers = /[0-9]/g;
+    let lcl = /[a-z]/g;
+	let ucl = /[A-Z]/g;
+	let numbers = /[0-9]/g;
 
     if(inputPassword.value == "") {
 		inputPassword.classList.add("is-invalid");
@@ -104,11 +104,11 @@ form.addEventListener('blur', (event) => {
 }, true);
 
 function validar_email(email) {
-	var regex = /^([ña-zA-Z0-9_\.\-])+\@(([ña-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	let regex = /^([ña-zA-Z0-9_\.\-])+\@(([ña-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email) ? true : false;
 }
 
 function validarDate(date) {
-    var date_regex = /^(0?[1-9]|[1-2][0-9]|3[01])[\/](0?[1-9]|1[0-2])[\/]\d{4}$/;
+    let date_regex = /^(0?[1-9]|[1-2][0-9]|3[01])[\/](0?[1-9]|1[0-2])[\/]\d{4}$/;
         return date_regex.test(date) ? true : false;
 }

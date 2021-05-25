@@ -19,8 +19,7 @@ public class CoinDAO {
     private int max_records = 1000;
  
     public CoinDAO() {
-        try {
-            
+        try {           
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://db-mysql-final-project-do-user-9229440-0.b.db.ondigitalocean.com:25060/proyecto_final", "luis", "z3rxgvnbrigspt5b");
             
@@ -93,7 +92,6 @@ public class CoinDAO {
             stmt.setString(2, coin.getSiglas());
             stmt.setDouble(3, coin.getPrice());
             
- 
             int res = stmt.executeUpdate();
             return res;
         } catch (Exception ex) {
@@ -141,9 +139,7 @@ public class CoinDAO {
             PreparedStatement stmt = con.prepareStatement(sql);
  
             stmt.setString(1, name);
-            
-            
- 
+             
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
             	return rs.getInt("id_coin");       
@@ -154,7 +150,5 @@ public class CoinDAO {
             System.out.println(ex);
             return -1;
         }
-    }
-    
-    
+    }    
 }

@@ -34,9 +34,6 @@ public class ApiPojo {
 	}
 	public ApiPojo() {
 		super();
-		this.name = name;
-		this.symbol = symbol;
-		this.current_price = current_price;
 	}
 
 	public String getName() {

@@ -1,9 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-if (session.getAttribute("user") != null) {//cambio de vacio a null
-
-	
+if (session.getAttribute("user") != null) {//cambio de vacio a null	
 %>
 
 <!DOCTYPE html>
@@ -61,6 +59,7 @@ if (session.getAttribute("user") != null) {//cambio de vacio a null
 <link rel="stylesheet" href="assets/css/Projects-Clean.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="stylesheet" href="assets/css/Team-Boxed.css">
+<link rel="stylesheet" href="assets/css/generalPanel.css">
 </head>
 
 <body style="text-align: center;">
@@ -134,17 +133,6 @@ if (session.getAttribute("user") != null) {//cambio de vacio a null
 					</div>
 				</form>
 			</div>
-			<div class="col-md-6" style="text-align: left;">
-				<img class="float-left"
-					src="assets/img/png-transparent-infographic-pie-chart-template-business-diagram-supply-chain-management-text-logo-business-process.png"
-					style="width: 224px; margin-left: 29px; margin-top: 13px;">
-				<ul class="text-center" style="list-style: none; text-align: left;">
-					<li style="margin-top: 30px; margin-right: 40px;">Item 1</li>
-					<li style="margin-top: 12px; margin-right: 40px;">Item 2</li>
-					<li style="margin-top: 17px; margin-right: 40px;">Item 3</li>
-					<li style="margin-top: 20px; margin-right: 41px;">Item 4</li>
-				</ul>
-			</div>
 		</div>
 	</div>
 	<h1 style="font-size: 33px; padding: 28px; margin-bottom: 2px;">Balance</h1>
@@ -174,37 +162,6 @@ if (session.getAttribute("user") != null) {//cambio de vacio a null
 					</c:forEach>
 
 
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<h1 style="font-size: 33px; padding: 28px; margin-top: 43px;">Histórico
-		de transacciones</h1>
-	<div class="container"
-		style="margin-bottom: 53px; box-shadow: 0px 0px 6px;">
-		<div class="table-responsive">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Par</th>
-						<th>Operaciones</th>
-						<th>Cantidad</th>
-						<th>Precio</th>
-						<th>Comisiones</th>
-						<th>Total</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Cell 1</td>
-						<td>Cell 2</td>
-						<td>Cell 2</td>
-						<td>Cell 2</td>
-						<td>Cell 2</td>
-						<td>Cell 2</td>
-						<td>Cell 2</td>
-					</tr>
 				</tbody>
 			</table>
 		</div>

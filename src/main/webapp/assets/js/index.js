@@ -1,15 +1,15 @@
 		//Validacion email
 
-		const form = document.getElementById('idForm');
+const form = document.getElementById('idForm');
 
 function validateIndexEmail() {
-    var acumErrores = 0;
+    let acumErrores = 0;
 
     form.classList.remove('is-invalid');
 
-    var inputEmail = document.forms['myForm']['inputEmail'];
+    let inputEmail = document.forms['myForm']['inputEmail'];
 
-    var inputEmail = document.getElementById('inputEmail');
+    let inputEmail = document.getElementById('inputEmail');
 
     if(inputEmail.value == '') {
         inputEmail.classList.add("is-invalid");
@@ -35,6 +35,6 @@ form.addEventListener('blur', (event) => {
 }, false);
 
 function validar_email(email) {
-	var regex = /^([ña-zA-Z0-9_\.\-])+\@(([ña-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	let regex = /^([ña-zA-Z0-9_\.\-])+\@(([ña-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email) ? true : false;
 }

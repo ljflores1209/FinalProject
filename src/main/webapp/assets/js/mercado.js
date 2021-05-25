@@ -1,6 +1,6 @@
 //------------------grafica que cambia en funcion a mi seleccion en el selector------------------------------
 $('select').on('change', function() {
-	 var id = $(this).find('option:selected').attr('id');
+	 let id = $(this).find('option:selected').attr('id');
 	 
 	 
 	$('#grafico').attr('src', "https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=" + id + "&pref_coin_id=1505")
@@ -33,11 +33,7 @@ document.getElementById('sonante').innerHTML = trasporteSonante;
       let precio = Object.values(objeto);
       precio = precio[0].usd;
       trasport = precio;
-      //const cantidad = parseFloat(document.getElementById('apuesta').value).toFixed(2);
-     
-      
-      
-      //document.getElementById('conversion').value = cantidad / precio 
+
       document.getElementById('cartera').innerHTML = " 1 " + moneda + " = " + trasport + " USD";
       
     })
@@ -45,36 +41,6 @@ document.getElementById('sonante').innerHTML = trasporteSonante;
       console.log('Error: ', err)
     })
 }
-
-
-//---------------resta de mi capital_total la cantidad que introduzco en el valor de compra y la cantidad de moneda que compro on change
-
-/*let conversion=$("#conversion").val();
-let secval = $("#sonante").html();
-
-let inival = $("#apuesta").val();
-
-$("#apuesta").change(function() {
-	let cantidad = $("#apuesta").val();
-	$("#sonante").html(secval - cantidad);
-	let cartera = $('#cartera').html();
-	
-	$("#conversion").val(cantidad / trasport);//cantidad de moneda
-	
-
-	
-    });
-//---------------resta de mi capital_total la cantidad que introduzco en el valor de compra y la cantidad de moneda que compro on keyup
-$("#apuesta").keyup(function() {
-	let cantidad = $("#apuesta").val();
-	$("#sonante").html(secval - cantidad);
-	
-	$("#conversion").val(cantidad / trasport);//cantidad de moneda
-});
-*/
-
-
-
 
 /*const form = document.getElementById('idForm');
 
@@ -100,22 +66,19 @@ function validateValorCompra() {
 }*/
 
 
-
-
-
-    $("#apuesta").on("input", function(){ 
+$("#apuesta").on("input", function(){ 
    
-    if (($("#apuesta").val()>=0) && ($("#apuesta").val()<=$("#sonanteIni").html())){
+if (($("#apuesta").val()>=0) && ($("#apuesta").val()<=$("#sonanteIni").html())){
         
-	$("#sonante").html($("#sonanteIni").html() - $("#apuesta").val());
+  $("#sonante").html($("#sonanteIni").html() - $("#apuesta").val());
 
-	$("#conversion").val($("#apuesta").val() / trasport);//cantidad de moneda
-	}else{
+  $("#conversion").val($("#apuesta").val() / trasport);//cantidad de moneda
+}else{
 	$("#apuesta").val(" ");
 	$("#sonante").html($("#sonanteIni").html());
 	$("#conversion").val(0);
-	}
-    });
+}
+});
 
 
 
